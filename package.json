@@ -1,17 +1,25 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
+  "name": "Ash-Nearby-Module",
+  "description": "FEC - Nearby Restaurant Module",
   "author": "",
-  "license": "",
+  "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {
-  },
-  "dependencies": {
-  },
+  "scripts": {},
+  "dependencies": {},
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
-  }
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git"
+  },
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashcoca/Ash-Nearby-Module.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Ashcoca/Ash-Nearby-Module/issues"
+  },
+  "homepage": "https://github.com/Ashcoca/Ash-Nearby-Module#readme"
 }
