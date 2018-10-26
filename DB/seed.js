@@ -2,11 +2,10 @@ const NearbyRest = require('./schema.js');
 const faker = require('faker');
 
 
-//skeleton for schema
 let restaurantSeed = function() {
-  let data = [];
 
   for (var i = 0; i < 100; i++) {
+    var data = [];
     data.push({
       location: {
         coordinates: [faker.fake('{{address.latitude}}'), faker.fake('{{address.longitude}}')],
@@ -25,18 +24,19 @@ let restaurantSeed = function() {
         percentWasGood: faker.fake('{{random.number}}'),
         percentOnTime: faker.fake('{{random.number}}'),
         percentAccuracy: faker.fake('{{random.number}}'),
-        featuredReview: faker.fake('{{random.number}}')
+        featuredReview: faker.fake('{{lorem.sentence}}')
       }
     });
     let nearby = new NearbyRest(data);
+    console.log(nearby);
     nearby.save(function(error, results) {
       if (error) {
         console.log(error);
       } else {
         console.log(results);
       }
-    })
-  };
+    });
+  }
   // nearby.createIndex({ location: "2dsphere" })
 };
 

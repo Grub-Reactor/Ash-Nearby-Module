@@ -10,7 +10,7 @@
     "seeding": "node DB/seed.js",
     "build": "webpack -d --watch",
     "start": "nodemon server/server.js",
-    "db:setup": "node database-mongodb.seeding.js"
+    "db:setup": "node database-mongodb.seed.js"
   },
   "dependencies": {
     "babel-loader": "^8.0.4",

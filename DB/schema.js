@@ -17,7 +17,7 @@ const restaurantSchema = new mongoose.Schema({
     totalReviews: {type: Number, max: 1000},
     favorite: {
       type: Boolean,
-      default: false
+      default: false,
     }
   },  
   hover: {
@@ -29,6 +29,6 @@ const restaurantSchema = new mongoose.Schema({
 });
 
 
-const NearbyRest = mongoose.model('NearbyRest', restaurantSchema)
+const NearbyRest = mongoose.model('NearbyRest', restaurantSchema);
 
 module.exports = NearbyRest;
