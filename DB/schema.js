@@ -4,7 +4,7 @@
 //grouped together within either the restaurant card key or the hover key. This will 
 //allow me to access the data I need with fewer queries. I have chosen Mongo b/c the data
 //I'm dealing with doesn't seem relational so it won't benefit from MySQL's strengths
-const restaurantSchema = new mongoose.Schema({
+const nearbyRestaurants = new mongoose.Schema({
   location: {
     type: 'Point',
     coordinates: [Number, Number], 
@@ -18,7 +18,9 @@ const restaurantSchema = new mongoose.Schema({
     deliveryMin: Number,
     starReviews: String,
     totalReviews: Number,
-    favorite: Boolean
+    favorite: {
+      type: Boolean,
+      default: false
   },
   hover: {
     percentWasGood: {type: Number, max: 100},
@@ -28,4 +30,34 @@ const restaurantSchema = new mongoose.Schema({
   }
 });
 
-db.restaurantSchema.createIndex({ location: '2dsphere' });
+//skeleton for schema
+let restaurants = [
+  {
+    location: {
+      type: String,
+      coordinates: [Number, Number], 
+    },
+    restaurantCard: {
+      restaurantName: String,
+      imageURL: String,
+      cuisine: String,
+      deliveryEstimate: String,
+      deliveryMin: Number,
+      starReviews: String,
+      totalReviews: Number,
+      favorite: {
+        type: Boolean,
+        default: false
+    },
+    hover: {
+      percentWasGood: {type: Number, max: 100},
+      percentOnTime: {type: Number, max: 100},
+      percentAccuracy: {type: Number, max: 100},
+      featuredReview: String
+      }
+    }
+  }
+]
+
+eventSchema.index({location: '2dsphere'});
+

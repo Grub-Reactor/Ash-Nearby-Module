@@ -6,7 +6,7 @@ db.restaurants.createIndex({ location: "2dsphere" })
 
 
 //skeleton for schema
-const nearbyRestaurants = [
+const restaurants = [
     {
 
     },
