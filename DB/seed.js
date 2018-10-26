@@ -2,6 +2,8 @@ const db = require('./index.js');
 const NearbyRest = require('./schema.js');
 const faker = require('faker');
 
+//These helpers generate random numbers for my DB, faker numbers were giving me
+//too high numbers. Can't have a delivery minimum of 60,000.
 let percentHelper = function() {
   let result = Math.floor((Math.random() * 100) + 1);
   return result;
@@ -29,7 +31,6 @@ let deliveryMax = function() {
 };
 
 
-
 let restaurantSeed = function() {
   var data = [];
 
@@ -55,18 +56,10 @@ let restaurantSeed = function() {
         featuredReview: faker.fake('{{lorem.sentence}}')
       }
     });
-    // let nearby = new NearbyRest(data);
-    // nearby.save(function(error, results) {
-    //   if (error) {
-    //     console.log(error);
-    //   } else {
-    //     console.log(results);
-    //   }
-    // });
   }
-  // nearby.createIndex({ location: "2dsphere" })
   return data;
 };
+
 const nearby = () => {
   NearbyRest.create(restaurantSeed())
     .then(() => db.disconnect());
