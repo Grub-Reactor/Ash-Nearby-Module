@@ -7,7 +7,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seeding": "node DB/seed.js",
+    "seed": "node DB/seed.js",
     "build": "webpack -d --watch",
     "start": "nodemon server/server.js",
     "db:setup": "node database-mongodb.seed.js"
