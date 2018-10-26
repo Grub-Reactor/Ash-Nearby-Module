@@ -4,6 +4,7 @@ mongoose.Promise = global.Promise;
 let faker = require('faker');
 
 const restaurantSchema = new mongoose.Schema({
+  id: Number,
   location: {
     coordinates: [Number, Number], 
   },

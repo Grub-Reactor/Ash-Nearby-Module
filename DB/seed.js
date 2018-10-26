@@ -33,9 +33,11 @@ let deliveryMax = function() {
 
 let restaurantSeed = function() {
   var data = [];
+  var num = 1;
 
   for (var i = 0; i < 100; i++) {
     data.push({
+      id: num,
       location: {
         coordinates: [faker.fake('{{address.latitude}}'), faker.fake('{{address.longitude}}')],
       },
@@ -56,6 +58,7 @@ let restaurantSeed = function() {
         featuredReview: faker.fake('{{lorem.sentence}}')
       }
     });
+    num++;
   }
   return data;
 };
