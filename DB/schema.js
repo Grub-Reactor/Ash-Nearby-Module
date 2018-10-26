@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/RestDB')
+mongoose.connect('mongodb://localhost/restingdb')
 mongoose.Promise = global.Promise;
 let faker = require('faker');
 
@@ -10,20 +10,20 @@ const restaurantSchema = new mongoose.Schema({
   restaurantCard: {
     restaurantName: String,
     imageURL: String,
-    cuisine: String,
-    deliveryEstimate: {type: Number, min:20, max:90},
-    deliveryMin: {type: Number, max: 30},
-    starReviews: {type: Number, max: 5},
-    totalReviews: {type: Number, max: 1000},
+    cuisine: [String, String],
+    deliveryEstimate: Number,
+    deliveryMin: Number,
+    starReviews: Number,
+    totalReviews: Number,
     favorite: {
       type: Boolean,
       default: false,
     }
   },  
   hover: {
-    percentWasGood: {type: Number, max: 100},
-    percentOnTime: {type: Number, max: 100},
-    percentAccuracy: {type: Number, max: 100},
+    percentWasGood: Number,
+    percentOnTime: Number,
+    percentAccuracy: Number,
     featuredReview: String
   }
 });
