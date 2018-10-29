@@ -7,11 +7,11 @@ var DIST_DIR = path.join(__dirname, '/public');
 
 module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
-  devtool: "source-map",
-  mode: "development",
+  devtool: 'source-map',
+  mode: 'development',
   cache: true,
   output: {
-    filename: "bundle.js",
+    filename: 'bundle.js',
     path: DIST_DIR
   },
   module: {
@@ -20,7 +20,7 @@ module.exports = {
         test: /\.jsx?/,
         include: SRC_DIR,
         exclude: /node.modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         query: {
           presets: ['@babel/preset-env', '@babel/preset-react']
         }

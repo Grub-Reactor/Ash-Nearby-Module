@@ -1,0 +1,1 @@
+//Does card need it's own handleClick for the favorites button?

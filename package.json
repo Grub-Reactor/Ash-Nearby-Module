@@ -10,7 +10,8 @@
     "seed": "node DB/seed.js",
     "build": "webpack -d --watch",
     "start": "nodemon server/server.js",
-    "db:setup": "node database-mongodb.seed.js"
+    "db:setup": "node database-mongodb.seed.js",
+    "lint": "eslint"
   },
   "dependencies": {
     "babel-loader": "^8.0.4",
@@ -21,6 +22,7 @@
     "jquery": "^3.3.1",
     "mongod": "^2.0.0",
     "mongoose": "^5.3.6",
+    "node": "^11.0.0",
     "path": "^0.12.7",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
@@ -36,7 +38,8 @@
     "eslint": "^5.8.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "faker": "^4.1.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.5"
   },
   "version": "1.0.0",
   "main": "client/src/index.jsx",
