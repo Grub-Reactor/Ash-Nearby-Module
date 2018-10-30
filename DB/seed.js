@@ -15,11 +15,11 @@ let mediumMax = function() {
 
 let roundedMax = function() {
   let number = Math.floor((Math.random() * 100) + 1);
-  return Math.ceil(number / 5) * 10;
+  return Math.ceil(number / 5) * 5 + 10;
 };
 
 let starMax = function() {
-  var precision = 100; // 2 decimals
+  var precision = 10; // 2 decimals
   var randomNum = Math.floor(Math.random() * (5 * precision - 1 * precision) + 1 * precision) / (1 * precision);
   return randomNum;
 };

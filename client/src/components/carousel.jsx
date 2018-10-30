@@ -1,4 +1,7 @@
 import React from 'react';
+import $ from 'jquery';
+import Card from './card.jsx';
+
 
 
 /*
@@ -14,12 +17,19 @@ class Carousel extends React.Component {
   //   super()
   // }
 
+
+
   render() {
     return(
       <div>
-
+        <button className="scroll-btn">-</button>
+        <div className = "card-container">
+        
+        </div>
+        <button className="scroll-btn">+</button>
       </div>
     );
   }
+};
 
-}
+export default Carousel;
