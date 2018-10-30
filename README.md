@@ -10,19 +10,19 @@ While this was part of a group project, this module was completed independently 
 
 Install Dependencies
 
-[] - Run npm install
+[ ] - Run npm install
 
 Build Database
 
-[] - MongoDB required
+[ ] - MongoDB required
 
-[] - Mongoose required
+[ ] - Mongoose required
 
-[] - Run mongo
+[ ] - Run mongo
 
-[] - Run npm run-script seed
+[ ] - Run npm run-script seed
 
 Set up Server
 
-[] - Run npm run-script start
+[ ] - Run npm run-script start
 
