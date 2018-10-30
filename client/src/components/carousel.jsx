@@ -13,9 +13,7 @@ Ways to implement this module:
 */
 
 class Carousel extends React.Component {
-  // constructor() {
-  //   super()
-  // }
+
 
 
 
@@ -24,7 +22,7 @@ class Carousel extends React.Component {
       <div>
         <button className="scroll-btn">-</button>
         <div className = "card-container">
-        
+        {<Card cards></Card>}
         </div>
         <button className="scroll-btn">+</button>
       </div>

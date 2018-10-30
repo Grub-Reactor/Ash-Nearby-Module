@@ -18,11 +18,16 @@ Build Database
 
 [ ] - Mongoose required
 
-[ ] - Run mongo
+[ ] - Run npm run-script db:setup
 
 [ ] - Run npm run-script seed
+
+Set up React Env
+
+[ ] - Run npm run-script build
 
 Set up Server
 
 [ ] - Run npm run-script start
 
+Browse to http://localhost:3004 and enjoy!

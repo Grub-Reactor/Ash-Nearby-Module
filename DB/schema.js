@@ -5,12 +5,11 @@ let faker = require('faker');
 
 const restaurantSchema = new mongoose.Schema({
   id: Number,
-  location: {
-    coordinates: [Number, Number], 
-  },
+  // location: {
+  //   coordinates: [Number, Number], 
+  // },
   restaurantCard: {
-    restaurantName: String,
-    imageURL: String,
+    restaurantName: [String, String],
     cuisine: [String, String],
     deliveryEstimate: Number,
     deliveryMin: Number,
@@ -19,12 +18,15 @@ const restaurantSchema = new mongoose.Schema({
     favorite: {
       type: Boolean,
       default: false,
-    }
+    },
+    imageURL: String,
   },  
   hover: {
     percentWasGood: Number,
     percentOnTime: Number,
     percentAccuracy: Number,
+    userName: String,
+    userProfile: String,
     featuredReview: String
   }
 });

@@ -1,6 +1,7 @@
 const db = require('./index.js');
 const NearbyRest = require('./schema.js');
 const faker = require('faker');
+// 
 
 //These helpers generate random numbers for my DB, faker numbers were giving me
 //too high numbers. Can't have a delivery minimum of 60,000.
@@ -42,9 +43,9 @@ let restaurantSeed = function() {
         coordinates: [faker.fake('{{address.latitude}}'), faker.fake('{{address.longitude}}')],
       },
       restaurantCard: {
-        restaurantName: faker.fake('{{company.companyName}}'),
-        imageURL: faker.fake('{{image.food}}'),
-        cuisine: [faker.fake('{{lorem.word}}'), faker.fake('{{lorem.word}}')],
+        restaurantName: [faker.fake('{{random.word}}'), " ", faker.fake('{{commerce.product}}')],
+        /*imageURL: faker.fake('{{random.image}}), -- will uncomment this line when deploying*/
+        cuisine: [faker.fake('{{commerce.productAdjective}}'), ", ", faker.fake('{{random.word}}')],
         deliveryEstimate: roundedMax(),
         deliveryMin: deliveryMax(),
         starReviews: starMax(),
@@ -55,6 +56,8 @@ let restaurantSeed = function() {
         percentWasGood: percentHelper(),
         percentOnTime: percentHelper(),
         percentAccuracy: percentHelper(),
+        userName: faker.fake('{{internet.userName}}'),
+        userProfile: faker.fake('{{internet.avatar}}'),
         featuredReview: faker.fake('{{lorem.sentence}}')
       }
     });
