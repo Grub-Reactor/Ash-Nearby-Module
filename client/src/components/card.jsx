@@ -1,16 +1,5 @@
 import React from 'react';
-// var fs = require('fs');
-
-//Does card need it's own handleClick for the favorites button?
-
-//include hover here
-
-//These lines are to create temporary placeholder images for the Restaurants
-//They will be removed an replaced with actual data during deployment
-// var imgPath = '/restImg.jpg';
-// var tempImage = fs.readFile(imgPath);
-
-
+import $ from 'jquery';
 
 class Card extends React.Component {
   constructor(props) {
@@ -18,33 +7,12 @@ class Card extends React.Component {
     this.state = {
       isLoading: true,
       data: [],
+      previousData: [],
       error: null
     }
   }
 /*
-    "restaurantCard": {
-      "cuisine": [
-        "molestiae",
-        "dicta"
-      ],
-      "favorite": false,
-      "restaurantName": "Terry - Graham",
-      "imageURL": "http:\/\/lorempixel.com\/640\/480\/food",
-      "deliveryEstimate": 5,
-      "deliveryMin": 8,
-      "starReviews": 1.52,
-      "totalReviews": 166
-    },
-    "hover": {
-      "percentWasGood": 35,
-      "percentOnTime": 49,
-      "percentAccuracy": 28,
-      "featuredReview": "Ipsam tempora quisquam."
-    },
-    "_id": "5bd7b87908044a61265a1315",
-    "id": 48,
-    "__v": 0
-  },
+
 */
   componentDidMount() {
 
@@ -53,22 +21,61 @@ class Card extends React.Component {
     .then(data => 
       this.setState({
         data: data,
-        isLoading: false
+        isLoading: false,
+        active: false
       })
     )
-    .then(console.log(this.state.data))
     .catch(error => this.setState({ error, isLoading: false }));
   }
 
+  nextResults() {
+
+    let oldData = this.state.data;
+
+    fetch('http://127.0.0.1:3004/restaurant/nearby/next')
+    .then(response => response.json())
+    .then(data => 
+      this.setState({
+        data: data,
+        previousData: oldData,
+        isLoading: false,
+        active: false
+      })
+    )
+    .catch(error => this.setState({ error, isLoading: false }));
+    console.log("clicked ", this.state.data[0])
+
+  };
+
+  previousResults() {
+    let replacementData = this.state.previousData;
+
+    this.setState({
+      data: replacementData
+    })
+  };
+
+  toggleClass() {
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
+  };
+
+
+  
+
   render () {
     const cards = (
-      <div>
+      <div className="card-flexbox">
+        <i className="fa fa-chevron-circle-left fa-2x" aria-hidden="true" onClick={this.nextResults.bind(this)}></i>
         {this.state.data.map((rests) => 
           <div className="card-container">
             <div className="card-top">
-              <img className="rest-image" src='assets/restImg.jpg'></img>
-              <div className="favorite">
-                <button className="fav-btn"></button>
+              <div className="image-favorites">
+                <img className="rest-image" src="assets/restImg.jpg"></img>
+                <div className="favorite">
+                  <i className={this.state.active ? "fa fa-bookmark-o hidden" : "fa fa-bookmark-o" ? "fa fa-bookmark-o" : "fa fa-bookmark-o hidden" } aria-hidden="true" onClick={this.toggleClass.bind(this)}></i>
+                  <i className={this.state.active ? "fa fa-bookmark" : "fa fa-bookmark hidden" ? "fa fa-bookmark hidden" : "fa fa-bookmark"} aria-hidden="true" onClick={this.toggleClass.bind(this)}></i>
+                </div>
               </div>
             </div>
             <div className="card-bottom">
@@ -79,7 +86,7 @@ class Card extends React.Component {
               <div className="card-bottom-small">
                 <div className="small-card-left">
                   <span className="estimate">{rests.restaurantCard.deliveryEstimate} - {rests.restaurantCard.deliveryEstimate + 10} mins</span>
-                  <span className="stars">{rests.restaurantCard.starReviews}</span>
+                  <span className="stars">{rests.restaurantCard.starReviews} stars</span>
                 </div>
                 <div className="small-card-right">
                   <span className="minimum">${rests.restaurantCard.deliveryMin} min.</span>
@@ -93,6 +100,7 @@ class Card extends React.Component {
           </div>
 
         )}
+        <i class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
       </div>
       )
     return(

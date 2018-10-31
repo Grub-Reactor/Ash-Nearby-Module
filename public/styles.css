@@ -1,5 +1,79 @@
+
+
+
+
+/*
+Card CSS
+*/
+
+.card-flexbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-container {
+  max-width: 250px;
+}
+
+.card-top {
+  display: flex;
+}
+
+.card-bottom {
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+}
+
+
+/* Card Image CSS */
+
+.image-favorites {
+  display: absolute;
+  width: 250px;
+  top: 0px;
+  left: 0px;
+
+}
+
 .rest-image {
   width: 250px;
   height: 150px;
+  display: flex;
+  z-index: -1;
+}
 
+.favorite {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+}
+
+.fa-bookmark-o {
+  position: absolute;
+  z-index: 1;
+  size: 200%;
+}
+
+.fa-bookmark {
+  position: absolute; 
+  z-index: 1;
+  size: 200%;
+
+}
+
+.hidden {
+  display: flex;
+  visibility: hidden;
+  position: absolute;
+}
+
+
+
+/* Card Bottom CSS */
+
+.card-bottom {
+  display: flex;
 }

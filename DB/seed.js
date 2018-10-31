@@ -39,9 +39,6 @@ let restaurantSeed = function() {
   for (var i = 0; i < 100; i++) {
     data.push({
       id: num,
-      location: {
-        coordinates: [faker.fake('{{address.latitude}}'), faker.fake('{{address.longitude}}')],
-      },
       restaurantCard: {
         restaurantName: [faker.fake('{{random.word}}'), " ", faker.fake('{{commerce.product}}')],
         /*imageURL: faker.fake('{{random.image}}), -- will uncomment this line when deploying*/
