@@ -3,14 +3,12 @@ mongoose.connect('mongodb://localhost/restingdb')
 mongoose.Promise = global.Promise;
 let faker = require('faker');
 
+
+//Removed location data, will consider re-adding if time permits
 const restaurantSchema = new mongoose.Schema({
   id: Number,
-  location: {
-    coordinates: [Number, Number], 
-  },
   restaurantCard: {
-    restaurantName: String,
-    imageURL: String,
+    restaurantName: [String, String],
     cuisine: [String, String],
     deliveryEstimate: Number,
     deliveryMin: Number,
@@ -19,12 +17,15 @@ const restaurantSchema = new mongoose.Schema({
     favorite: {
       type: Boolean,
       default: false,
-    }
+    },
+    imageURL: String,
   },  
   hover: {
     percentWasGood: Number,
     percentOnTime: Number,
     percentAccuracy: Number,
+    userName: String,
+    userProfile: String,
     featuredReview: String
   }
 });
