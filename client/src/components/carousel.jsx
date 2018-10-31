@@ -58,9 +58,6 @@ class Carousel extends React.Component {
     if (replacementData.length === 0) {
       return;
     }
-    if (replacementData[0].restaurantName === this.state.previousData[0].restaurantName) {
-      return;
-    }
     this.setState({
       data: replacementData
     })

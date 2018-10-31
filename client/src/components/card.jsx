@@ -21,7 +21,7 @@ class Card extends React.Component {
 
   render () {
     const cards = (
-      <div>
+      <div className="test">
         {this.props.cards.data.map((rests) => 
           <div className="card-container">
             <div className="card-top">
@@ -35,7 +35,7 @@ class Card extends React.Component {
             </div>
             <div className="card-bottom">
               <div className="card-bottom-title">
-                <span className="rest-name">{rests.restaurantCard.restaurantName}</span>
+                <h4 className="rest-name">{rests.restaurantCard.restaurantName}</h4>
                 <span className="cuisines">{rests.restaurantCard.cuisines}</span>
               </div>
               <div className="card-bottom-small">
@@ -48,9 +48,6 @@ class Card extends React.Component {
                   <span className="total-reviews">{rests.restaurantCard.totalReviews} ratings</span>
                 </div>
               </div>
-            </div>
-            <div className="hover-card">
-
             </div>
           </div>
         )}

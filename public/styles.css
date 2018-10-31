@@ -5,9 +5,15 @@
 Card CSS
 */
 
+.test {
+  display: flex;
+  flex-direction: row;
+}
+
 
 .card-container {
   max-width: 250px;
+  padding: 20px;
 }
 
 .card-top {
@@ -18,6 +24,9 @@ Card CSS
   border-style: solid;
   border-color: lightgray;
   border-width: 1px;
+  width: 250px;
+  height: 100px;
+
 }
 
 
