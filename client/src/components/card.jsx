@@ -53,7 +53,6 @@ class Card extends React.Component {
         )}
       </div>
       )
-
     return(
       <div>
         {cards}
