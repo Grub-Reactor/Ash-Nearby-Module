@@ -2,9 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-
-
-
 class Card extends React.Component {
   constructor(props) {
     super(props)
@@ -24,7 +21,7 @@ class Card extends React.Component {
 
   render () {
     const cards = (
-      <div className="card-container">
+      <div>
         {this.props.cards.data.map((rests) => 
           <div className="card-container">
             <div className="card-top">
@@ -59,6 +56,7 @@ class Card extends React.Component {
         )}
       </div>
       )
+
     return(
       <div>
         {cards}
