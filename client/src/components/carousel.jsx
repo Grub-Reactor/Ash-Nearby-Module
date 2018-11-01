@@ -16,7 +16,9 @@ class Carousel extends React.Component {
     this.state = {
       isLoading: true,
       data: [],
+      currentData: [],
       previousData: [],
+      count: 0,
       error: null
     }
     this.nextResults = this.nextResults.bind(this)
@@ -24,45 +26,40 @@ class Carousel extends React.Component {
 
   componentDidMount() {
 
-    fetch('http://127.0.0.1:3004/restaurant/nearby')
+    fetch('/restaurant/:id')
     .then(response => response.json())
     .then(data => 
       this.setState({
         data: data,
         isLoading: false,
+        currentData: data.slice(0, 3),
+        previousData: data.slice(0, 3),
+        count: 3
       })
     )
     .catch(error => this.setState({ error, isLoading: false }));
   }
 
-//replace this fetch fn with a function that simple sets the state to the next
-//3 restaurants in our state object
   nextResults() {
+    //resets to the beginning of the results
+    if (this.state.count === 12) {
 
-    let oldData = this.state.data;
+    }
 
-    fetch('http://127.0.0.1:3004/restaurant/nearby/next')
-    .then(response => response.json())
-    .then(data => 
-      this.setState({
-        data: data,
-        previousData: oldData,
-        isLoading: false,
-      })
-    )
-    .catch(error => this.setState({ error, isLoading: false }));
-    console.log("clicked ", this.state.data[0])
-
+    let currentCount = this.state.count;
+    this.setState({
+      previousData: this.state.currentData,
+      currentData: this.state.data.slice(currentCount, (currentCount + 3)),
+      count: this.state.count + 3
+    })
+    console.log("Current Data ", this.state.currentData);
+    console.log("Previous Data ", this.state.previousData);
   };
 
   previousResults() {
-    let replacementData = this.state.previousData;
-    if (replacementData.length === 0) {
+    if (this.state.previousData.length === 0) {
       return;
     }
-    this.setState({
-      data: replacementData
-    })
   };
 
 
@@ -72,8 +69,8 @@ class Carousel extends React.Component {
         <h2>Sponsored restaurants in your area</h2>
         <CardFlexbox>
           <i className="fa fa-chevron-circle-left fa-2x" aria-hidden="true" onClick={this.previousResults.bind(this)}></i>
-          {<Card cards={this.state}></Card>}
-          {<Hover hovers = {this.state.data}></Hover>}
+          {<Card cards={this.state.currentData}></Card>}
+          {<Hover hovers={this.state.currentData}></Hover>}
           <i className="fa fa-chevron-circle-right fa-2x" aria-hidden="true" onClick={this.nextResults.bind(this)}></i>
         </CardFlexbox>
       </div>

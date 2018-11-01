@@ -17,12 +17,10 @@ class Card extends React.Component {
   };
 
 
-  
-
   render () {
     const cards = (
       <div className="test">
-        {this.props.cards.data.map((rests) => 
+        {this.props.cards.map((rests) => 
           <div className="card-container">
             <div className="card-top">
               <div className="image-favorites">
@@ -50,6 +48,7 @@ class Card extends React.Component {
               </div>
             </div>
           </div>
+
         )}
       </div>
       )

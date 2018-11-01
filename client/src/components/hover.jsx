@@ -2,7 +2,10 @@ import React from 'react';
 
 
 class Hover extends React.Component {
+  constructor(props) {
+    super(props)
 
+  }
   /*
   hover: {
     percentWasGood: Number,
@@ -17,22 +20,19 @@ class Hover extends React.Component {
 
   render () {
     const hover = (
-      <div>
-        {this.props.hover.data.restaurantCard.hover.map}
+      <div className="hover-container">
+        {this.props.hovers.map((data) => {
+          <span className="hover-box">{data.hover.userName}</span>
+        })}
       </div>
     )
     return(
-      <div className="hover-card">
-
+      <div>
+        {hover}
       </div>
     );
   }
-
-
-
 }
-
-
 
 
 

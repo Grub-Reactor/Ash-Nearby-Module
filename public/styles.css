@@ -5,6 +5,10 @@
 Card CSS
 */
 
+body {
+  background-color: lightgray;
+}
+
 .test {
   display: flex;
   flex-direction: row;
@@ -14,6 +18,8 @@ Card CSS
 .card-container {
   max-width: 250px;
   padding: 20px;
+  margin: 5px;
+  background-color: white;
 }
 
 .card-top {
@@ -24,8 +30,12 @@ Card CSS
   border-style: solid;
   border-color: lightgray;
   border-width: 1px;
-  width: 250px;
+  width: 249px;
+  max-width: 249px;
+  max-height: 100px;
   height: 100px;
+  background-color: whitesmoke;
+
 
 }
 
@@ -55,13 +65,15 @@ Card CSS
 }
 
 .fa-bookmark-o {
-  /* position: absolute; */
+  position: absolute;
   z-index: 1;
   size: 200%;
+  top: 10%;
+  right: 16%;
 }
 
 .fa-bookmark {
-  /* position: absolute;  */
+  position: absolute; 
   z-index: 1;
   size: 200%;
 
@@ -79,4 +91,12 @@ Card CSS
 
 .card-bottom {
   display: flex;
+}
+
+
+
+.hover-box {
+  background-color:green;
+  padding: 50px;
+  margin: 50px;
 }

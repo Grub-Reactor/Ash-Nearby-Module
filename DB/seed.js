@@ -41,7 +41,7 @@ let restaurantSeed = function() {
       id: num,
       restaurantCard: {
         restaurantName: [faker.fake('{{random.word}}'), " ", faker.fake('{{commerce.product}}')],
-        /*imageURL: faker.fake('{{random.image}}), -- will uncomment this line when deploying*/
+        imageURL: faker.fake('{{random.image}}'),
         cuisine: [faker.fake('{{commerce.productAdjective}}'), ", ", faker.fake('{{random.word}}')],
         deliveryEstimate: roundedMax(),
         deliveryMin: deliveryMax(),

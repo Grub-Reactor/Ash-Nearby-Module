@@ -18,9 +18,9 @@ Build Database
 
 [ ] - Mongoose required
 
-[ ] - Run npm run-script db:setup
+[ ] - Start Mongo - Run npm run-script mongo
 
-[ ] - Run npm run-script seed
+[ ] - Seed DB - Run npm run-script seed
 
 Set up React Env
 
