@@ -32,8 +32,8 @@ class Card extends React.Component {
               </div>
             </div>
             <div className="card-bottom">
+              <h4 className="rest-name">{rests.restaurantCard.restaurantName}</h4>
               <div className="card-bottom-title">
-                <h4 className="rest-name">{rests.restaurantCard.restaurantName}</h4>
                 <span className="cuisines">{rests.restaurantCard.cuisines}</span>
               </div>
               <div className="card-bottom-small">

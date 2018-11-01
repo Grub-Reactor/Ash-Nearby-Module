@@ -23,15 +23,14 @@ body {
 }
 
 .card-top {
-  display: flex;
 }
 
 .card-bottom {
   border-style: solid;
   border-color: lightgray;
   border-width: 1px;
-  width: 249px;
-  max-width: 249px;
+  width: 248px;
+  max-width: 248px;
   max-height: 100px;
   height: 100px;
   background-color: whitesmoke;

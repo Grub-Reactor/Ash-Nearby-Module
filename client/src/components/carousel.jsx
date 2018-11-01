@@ -9,7 +9,11 @@ display: flex;
 flex-direction: row;
 align-items: center;
 `
-
+/*
+For previous, use conditional rendering.
+previousData 0 = x, 1 = x2, 2 = x3 etc.
+Then switch onClick?
+*/
 class Carousel extends React.Component {
   constructor(props) {
     super(props)
@@ -25,15 +29,14 @@ class Carousel extends React.Component {
   }
 
   componentDidMount() {
-
-    fetch('/restaurant/:id')
+    let id = Math.floor((Math.random() * 100) + 1);
+    fetch(`/restaurant/${id}`)
     .then(response => response.json())
     .then(data => 
       this.setState({
         data: data,
         isLoading: false,
         currentData: data.slice(0, 3),
-        previousData: data.slice(0, 3),
         count: 3
       })
     )
@@ -45,8 +48,8 @@ class Carousel extends React.Component {
     if (this.state.count === 12) {
 
     }
-
     let currentCount = this.state.count;
+    
     this.setState({
       previousData: this.state.currentData,
       currentData: this.state.data.slice(currentCount, (currentCount + 3)),
