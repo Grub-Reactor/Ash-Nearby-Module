@@ -1,6 +1,7 @@
 const db = require('./index.js');
 const NearbyRest = require('./schema.js');
 const faker = require('faker');
+// 
 
 //These helpers generate random numbers for my DB, faker numbers were giving me
 //too high numbers. Can't have a delivery minimum of 60,000.
@@ -15,11 +16,11 @@ let mediumMax = function() {
 
 let roundedMax = function() {
   let number = Math.floor((Math.random() * 100) + 1);
-  return Math.ceil(number / 5) * 10;
+  return Math.ceil(number / 5) * 5 + 10;
 };
 
 let starMax = function() {
-  var precision = 100; // 2 decimals
+  var precision = 10; // 2 decimals
   var randomNum = Math.floor(Math.random() * (5 * precision - 1 * precision) + 1 * precision) / (1 * precision);
   return randomNum;
 };
@@ -38,13 +39,10 @@ let restaurantSeed = function() {
   for (var i = 0; i < 100; i++) {
     data.push({
       id: num,
-      location: {
-        coordinates: [faker.fake('{{address.latitude}}'), faker.fake('{{address.longitude}}')],
-      },
       restaurantCard: {
-        restaurantName: faker.fake('{{company.companyName}}'),
-        imageURL: faker.fake('{{image.food}}'),
-        cuisine: [faker.fake('{{lorem.word}}'), faker.fake('{{lorem.word}}')],
+        restaurantName: [faker.fake('{{random.word}}'), " ", faker.fake('{{commerce.product}}')],
+        /*imageURL: faker.fake('{{random.image}}), -- will uncomment this line when deploying*/
+        cuisine: [faker.fake('{{commerce.productAdjective}}'), ", ", faker.fake('{{random.word}}')],
         deliveryEstimate: roundedMax(),
         deliveryMin: deliveryMax(),
         starReviews: starMax(),
@@ -55,6 +53,8 @@ let restaurantSeed = function() {
         percentWasGood: percentHelper(),
         percentOnTime: percentHelper(),
         percentAccuracy: percentHelper(),
+        userName: faker.fake('{{internet.userName}}'),
+        userProfile: faker.fake('{{internet.avatar}}'),
         featuredReview: faker.fake('{{lorem.sentence}}')
       }
     });

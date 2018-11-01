@@ -1,18 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+import Carousel from './components/carousel.jsx';
 
 
-class App extends React.Component {
-  
-  render() {
-    return (
-      <div>Hello, this is the rendered React page
-        
-      </div>
-    );
-  }
-
-};
-
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Carousel />, document.getElementById('carousel'));
