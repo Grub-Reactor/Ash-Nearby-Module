@@ -1,19 +1,19 @@
 
 
 
-
 /*
 Card CSS
 */
 
-.card-flexbox {
+.test {
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
+
 
 .card-container {
   max-width: 250px;
+  padding: 20px;
 }
 
 .card-top {
@@ -24,6 +24,9 @@ Card CSS
   border-style: solid;
   border-color: lightgray;
   border-width: 1px;
+  width: 250px;
+  height: 100px;
+
 }
 
 
@@ -45,20 +48,20 @@ Card CSS
 }
 
 .favorite {
-  position: absolute;
+  /* position: absolute; */
   top: 0px;
   right: 0px;
   z-index: 1;
 }
 
 .fa-bookmark-o {
-  position: absolute;
+  /* position: absolute; */
   z-index: 1;
   size: 200%;
 }
 
 .fa-bookmark {
-  position: absolute; 
+  /* position: absolute;  */
   z-index: 1;
   size: 200%;
 

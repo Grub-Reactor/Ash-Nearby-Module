@@ -1,59 +1,15 @@
 import React from 'react';
-import $ from 'jquery';
+import styled from 'styled-components';
+
 
 class Card extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isLoading: true,
-      data: [],
-      previousData: [],
-      error: null
+      active: false
     }
   }
-/*
 
-*/
-  componentDidMount() {
-
-    fetch('http://127.0.0.1:3004/restaurant/nearby')
-    .then(response => response.json())
-    .then(data => 
-      this.setState({
-        data: data,
-        isLoading: false,
-        active: false
-      })
-    )
-    .catch(error => this.setState({ error, isLoading: false }));
-  }
-
-  nextResults() {
-
-    let oldData = this.state.data;
-
-    fetch('http://127.0.0.1:3004/restaurant/nearby/next')
-    .then(response => response.json())
-    .then(data => 
-      this.setState({
-        data: data,
-        previousData: oldData,
-        isLoading: false,
-        active: false
-      })
-    )
-    .catch(error => this.setState({ error, isLoading: false }));
-    console.log("clicked ", this.state.data[0])
-
-  };
-
-  previousResults() {
-    let replacementData = this.state.previousData;
-
-    this.setState({
-      data: replacementData
-    })
-  };
 
   toggleClass() {
     const currentState = this.state.active;
@@ -65,9 +21,8 @@ class Card extends React.Component {
 
   render () {
     const cards = (
-      <div className="card-flexbox">
-        <i className="fa fa-chevron-circle-left fa-2x" aria-hidden="true" onClick={this.nextResults.bind(this)}></i>
-        {this.state.data.map((rests) => 
+      <div className="test">
+        {this.props.cards.data.map((rests) => 
           <div className="card-container">
             <div className="card-top">
               <div className="image-favorites">
@@ -80,7 +35,7 @@ class Card extends React.Component {
             </div>
             <div className="card-bottom">
               <div className="card-bottom-title">
-                <span className="rest-name">{rests.restaurantCard.restaurantName}</span>
+                <h4 className="rest-name">{rests.restaurantCard.restaurantName}</h4>
                 <span className="cuisines">{rests.restaurantCard.cuisines}</span>
               </div>
               <div className="card-bottom-small">
@@ -94,13 +49,8 @@ class Card extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="hover-card">
-
-            </div>
           </div>
-
         )}
-        <i class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
       </div>
       )
     return(

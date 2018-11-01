@@ -10,7 +10,8 @@
     "seed": "node DB/seed.js",
     "build": "webpack -d --watch",
     "start": "nodemon server/server.js",
-    "db:setup": "Mongo --host 127.0.0.1:27017",
+    "mongo": "sudo service mongod start",
+    "db:setup": "mongo --host 127.0.0.1:27017",
     "lint": "eslint"
   },
   "dependencies": {
@@ -36,11 +37,13 @@
     "@babel/preset-react": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-plugin-styled-components": "^1.8.0",
     "eslint": "^5.8.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "faker": "^4.1.0",
     "jest": "^23.6.0",
-    "nodemon": "^1.18.5"
+    "nodemon": "^1.18.5",
+    "styled-components": "^4.0.3"
   },
   "version": "1.0.0",
   "main": "client/src/index.jsx",
