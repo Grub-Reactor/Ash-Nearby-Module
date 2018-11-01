@@ -27,14 +27,11 @@ class Card extends React.Component {
         {this.props.cards.map((rests) => 
           <div className="card-container">
             <div className="card-top">
-              {/* <div className="image-favorites"> */}
                 <div className="favorite"> 
                 <img className="rest-image" src="assets/restImg.jpg"></img>
-
                   <i className={this.state.active ? "fa fa-bookmark-o hidden" : "fa fa-bookmark-o" ? "fa fa-bookmark-o" : "fa fa-bookmark-o hidden" } aria-hidden="true" onClick={this.toggleClass.bind(this)}></i>
                   <i className={this.state.active ? "fa fa-bookmark" : "fa fa-bookmark hidden" ? "fa fa-bookmark hidden" : "fa fa-bookmark"} aria-hidden="true" onClick={this.toggleClass.bind(this)}></i>
                 </div>
-              {/* </div> */}
             </div>
             <div className="card-bottom">
               <div className="card-title">
@@ -54,7 +51,6 @@ class Card extends React.Component {
               </div>
             </div>
           </div>
-
         )}
       </div>
       )
