@@ -9,11 +9,7 @@ display: flex;
 flex-direction: row;
 align-items: center;
 `
-/*
-For previous, use conditional rendering.
-previousData 0 = x, 1 = x2, 2 = x3 etc.
-Then switch onClick?
-*/
+
 class Carousel extends React.Component {
   constructor(props) {
     super(props)
@@ -21,11 +17,11 @@ class Carousel extends React.Component {
       isLoading: true,
       data: [],
       currentData: [],
-      previousData: [],
-      count: 0,
+      count: 1,
       error: null
     }
-    this.nextResults = this.nextResults.bind(this)
+    this.nextResults = this.nextResults.bind(this);
+    this.previousResults = this.previousResults.bind(this);
   }
 
   componentDidMount() {
@@ -36,51 +32,53 @@ class Carousel extends React.Component {
       this.setState({
         data: data,
         isLoading: false,
-        previousData: data.slice(0, 3),
         currentData: data.slice(0, 3),
-        nextData: data.slice(3, 6),
-        count: 6
+        count: 1
       })
     )
     .catch(error => this.setState({ error, isLoading: false }));
   }
 
   nextResults() {
-    //resets to the beginning of the results
-    if (this.state.count > 15) {
-      return;
-    }
-  
-    let currentCount = this.state.count;
-    
-    this.setState({
-      previousData: this.state.currentData,
-      currentData: this.state.nextData,
-      nextData: this.state.data.slice(currentCount, (currentCount + 3)),
-      count: this.state.count + 3
-    })
-    console.log("All data", this.state.data)
-    console.log("Current Data ", this.state.currentData);
-    console.log("Previous Data ", this.state.previousData);
-    console.log("Next data", this.state.nextData)
-    console.log("Count", this.state.count);
+    if (this.state.count === 1) {
+      this.setState({
+        currentData: this.state.data.slice(3, 6),
+        count: 2
+      });
+    };
+    if (this.state.count === 2) {
+      this.setState({
+        currentData: this.state.data.slice(6, 9),
+        count: 3
+      });
+    };   
+    if (this.state.count === 3) {
+      this.setState({
+        currentData: this.state.data.slice(9, 12),
+        count: 3
+      });
+    };
   };
 
   previousResults() {
-    if (this.state.count === 6) {
-      return;
-    }
-    let currentCount = this.state.count -6;
-    this.setState({
-      currentData: this.state.previousData,
-      previousData: this.state.data.slice(currentCount, (currentCount + 3)),
-      nextData: this.state.data.slice((currentCount + 3), (currentCount + 6)),
-      count: this.state.count - 3
-    })
-    console.log("Current Data ", this.state.currentData);
-    console.log("Previous Data ", this.state.previousData);
-    console.log("Count", this.state.count);
-
+    if (this.state.count === 1) {
+      this.setState({
+        currentData: this.state.data.slice(0, 3),
+        count: 1
+      });
+    };
+    if (this.state.count === 2) {
+      this.setState({
+        currentData: this.state.data.slice(3, 6),
+        count: 1
+      });
+    };   
+    if (this.state.count === 3) {
+      this.setState({
+        currentData: this.state.data.slice(6, 9),
+        count: 2
+      });
+    };
   };
 
 
