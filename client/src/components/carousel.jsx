@@ -36,8 +36,10 @@ class Carousel extends React.Component {
       this.setState({
         data: data,
         isLoading: false,
+        previousData: data.slice(0, 3),
         currentData: data.slice(0, 3),
-        count: 3
+        nextData: data.slice(3, 6),
+        count: 6
       })
     )
     .catch(error => this.setState({ error, isLoading: false }));
@@ -45,24 +47,40 @@ class Carousel extends React.Component {
 
   nextResults() {
     //resets to the beginning of the results
-    if (this.state.count === 12) {
-
+    if (this.state.count > 15) {
+      return;
     }
+  
     let currentCount = this.state.count;
     
     this.setState({
       previousData: this.state.currentData,
-      currentData: this.state.data.slice(currentCount, (currentCount + 3)),
+      currentData: this.state.nextData,
+      nextData: this.state.data.slice(currentCount, (currentCount + 3)),
       count: this.state.count + 3
     })
+    console.log("All data", this.state.data)
     console.log("Current Data ", this.state.currentData);
     console.log("Previous Data ", this.state.previousData);
+    console.log("Next data", this.state.nextData)
+    console.log("Count", this.state.count);
   };
 
   previousResults() {
-    if (this.state.previousData.length === 0) {
+    if (this.state.count === 6) {
       return;
     }
+    let currentCount = this.state.count -6;
+    this.setState({
+      currentData: this.state.previousData,
+      previousData: this.state.data.slice(currentCount, (currentCount + 3)),
+      nextData: this.state.data.slice((currentCount + 3), (currentCount + 6)),
+      count: this.state.count - 3
+    })
+    console.log("Current Data ", this.state.currentData);
+    console.log("Previous Data ", this.state.previousData);
+    console.log("Count", this.state.count);
+
   };
 
 

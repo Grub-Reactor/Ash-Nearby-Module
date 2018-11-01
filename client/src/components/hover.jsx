@@ -17,7 +17,6 @@ class Hover extends React.Component {
   }
   */
 
-
   render () {
     const hover = (
       <div className="hover-container">

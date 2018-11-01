@@ -16,6 +16,10 @@ class Card extends React.Component {
     this.setState({ active: !currentState });
   };
 
+  generateStars(num) {
+    return num;
+  }
+
 
   render () {
     const cards = (
@@ -23,26 +27,28 @@ class Card extends React.Component {
         {this.props.cards.map((rests) => 
           <div className="card-container">
             <div className="card-top">
-              <div className="image-favorites">
+              {/* <div className="image-favorites"> */}
+                <div className="favorite"> 
                 <img className="rest-image" src="assets/restImg.jpg"></img>
-                <div className="favorite">
+
                   <i className={this.state.active ? "fa fa-bookmark-o hidden" : "fa fa-bookmark-o" ? "fa fa-bookmark-o" : "fa fa-bookmark-o hidden" } aria-hidden="true" onClick={this.toggleClass.bind(this)}></i>
                   <i className={this.state.active ? "fa fa-bookmark" : "fa fa-bookmark hidden" ? "fa fa-bookmark hidden" : "fa fa-bookmark"} aria-hidden="true" onClick={this.toggleClass.bind(this)}></i>
                 </div>
-              </div>
+              {/* </div> */}
             </div>
             <div className="card-bottom">
-              <h4 className="rest-name">{rests.restaurantCard.restaurantName}</h4>
-              <div className="card-bottom-title">
-                <span className="cuisines">{rests.restaurantCard.cuisines}</span>
+              <div className="card-title">
+                <h4 className="rest-name">{rests.restaurantCard.restaurantName}</h4>
+                <span className="cuisines">{rests.restaurantCard.cuisine}</span>
               </div>
               <div className="card-bottom-small">
                 <div className="small-card-left">
                   <span className="estimate">{rests.restaurantCard.deliveryEstimate} - {rests.restaurantCard.deliveryEstimate + 10} mins</span>
-                  <span className="stars">{rests.restaurantCard.starReviews} stars</span>
+                  <span className="minimum">${rests.restaurantCard.deliveryMin} min.</span>
+
                 </div>
                 <div className="small-card-right">
-                  <span className="minimum">${rests.restaurantCard.deliveryMin} min.</span>
+                  <span className="stars">{this.generateStars(rests.restaurantCard.starReviews)} stars</span>
                   <span className="total-reviews">{rests.restaurantCard.totalReviews} ratings</span>
                 </div>
               </div>

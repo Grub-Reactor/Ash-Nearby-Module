@@ -6,7 +6,7 @@ Card CSS
 */
 
 body {
-  background-color: lightgray;
+  background-color: whitesmoke;
 }
 
 .test {
@@ -16,44 +16,48 @@ body {
 
 
 .card-container {
-  max-width: 250px;
-  padding: 20px;
-  margin: 5px;
-  background-color: white;
+  max-width: 255px;
+  padding: 10px;
+  /* background-color: white; */
 }
 
 .card-top {
 }
 
 .card-bottom {
-  border-style: solid;
-  border-color: lightgray;
-  border-width: 1px;
-  width: 248px;
-  max-width: 248px;
-  max-height: 100px;
-  height: 100px;
-  background-color: whitesmoke;
-
+  border: 1px solid rgba(0,0,0,.1);
+  width: 250px;
+  max-width: 250px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: white;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.05);
 
 }
 
 
 /* Card Image CSS */
 
-.image-favorites {
+/* .image-favorites {
   display: absolute;
   width: 250px;
-  top: 0px;
-  left: 0px;
+  height: 132px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 
-}
+} */
 
 .rest-image {
   width: 250px;
-  height: 150px;
+  height: 132px;
   display: flex;
   z-index: -1;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.1);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.05);
+
 }
 
 .favorite {
@@ -82,14 +86,55 @@ body {
   display: flex;
   visibility: hidden;
   position: absolute;
+
 }
 
 
 
 /* Card Bottom CSS */
 
-.card-bottom {
+.card-bottom-small {
   display: flex;
+}
+
+.rest-name {
+  position: relative;
+  left: 15px;
+  top: 0px;
+  overflow: hidden;
+  font-size: 17px;
+
+}
+
+
+.cuisines {
+  font-size: 12px;
+  color: rgba(0,0,0,.55);
+  position: relative;
+  top: -22px;
+  left: 15px;
+}
+
+.estimate {
+  font-size: 12px;
+  position: relative;
+  line-height: 1.45;
+  left: 15px;
+  top: -16px;
+}
+
+.minimum {
+  position: relative;
+  color: rgba(0,0,0,.55);
+  font-size: 12px;
+  line-height: 1.45;
+  left: -45px;
+  top: -2px;
+
+}
+
+
+.small-card-right {
 }
 
 

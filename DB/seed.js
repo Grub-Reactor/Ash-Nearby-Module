@@ -40,7 +40,7 @@ let restaurantSeed = function() {
     data.push({
       id: num,
       restaurantCard: {
-        restaurantName: [faker.fake('{{random.word}}'), " ", faker.fake('{{commerce.product}}')],
+        restaurantName: [faker.fake('{{commerce.product}}'), " ", faker.fake('{{random.word}}')],
         imageURL: faker.fake('{{random.image}}'),
         cuisine: [faker.fake('{{commerce.productAdjective}}'), ", ", faker.fake('{{random.word}}')],
         deliveryEstimate: roundedMax(),
