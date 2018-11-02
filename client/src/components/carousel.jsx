@@ -40,53 +40,46 @@ class Carousel extends React.Component {
   }
 
   nextResults() {
-
     if (this.state.count <= 1) {
       this.setState({
         currentData: this.state.data.slice(3, 6),
-        count: 2
+        count: 2,
       });
     };
     if (this.state.count === 2) {
       this.setState({
         currentData: this.state.data.slice(6, 9),
-        count: 3
+        count: 3,
       });
     };   
     if (this.state.count === 3) {
       this.setState({
         currentData: this.state.data.slice(9, 12),
-        count: 4
+        count: 4,
       });
     };
-    console.log(this.state.currentData);
-    console.log(this.state.count);
   };
 
   previousResults() {
-
     if (this.state.count === 1) {
       this.setState({
         currentData: this.state.data.slice(0, 3),
-        count: 0
+        count: 0,
       });
     };
     if (this.state.count === 2) {
       this.setState({
         currentData: this.state.data.slice(3, 6),
-        count: 1
+        count: 1,
       });
     };   
     if (this.state.count >= 3) {
       this.setState({
         currentData: this.state.data.slice(6, 9),
-        count: 2
+        count: 2,
       });
     };
-    console.log(this.state.currentData);
-    console.log(this.state.count);
   };
-
 
   render() {
     return(
@@ -94,10 +87,10 @@ class Carousel extends React.Component {
         <h2>Sponsored restaurants in your area</h2>
 
         <CardFlexbox>
-          <i className="fa fa-chevron-circle-left fa-2x" aria-hidden="true" onClick={this.previousResults.bind(this)}></i>
+        <svg id="caret-left" onClick={this.previousResults.bind(this)} viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M18.6 7.51l2.48 2.47-6.6 6.6-2.47 2.47-2.47-2.47-6.55-6.55 2.48-2.47 6.54 6.54 6.59-6.59zm0 0" fill="currentColor"></path></svg>
           {<Card cards={this.state.currentData}></Card>}
           {<Hover hovers={this.state.currentData}></Hover>}
-          <i className="fa fa-chevron-circle-right fa-2x" aria-hidden="true" onClick={this.nextResults.bind(this)}></i>
+          <svg id="caret-right" onClick={this.nextResults.bind(this)} viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M18.6 7.51l2.48 2.47-6.6 6.6-2.47 2.47-2.47-2.47-6.55-6.55 2.48-2.47 6.54 6.54 6.59-6.59zm0 0" fill="currentColor"></path></svg>
         </CardFlexbox>
       </div>
     );

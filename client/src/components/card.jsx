@@ -15,7 +15,8 @@ class Card extends React.Component {
 
   toggleClass() {
     const currentState = this.state.active;
-    this.setState({ active: !currentState });
+    this.setState({
+      active: !currentState });
   };
 
   generateStars(num) {
@@ -26,8 +27,6 @@ class Card extends React.Component {
   }
   
 
-
-
   render () {
     const cards = (
       <div className="test">
@@ -36,7 +35,7 @@ class Card extends React.Component {
             <div className="card-top">
                 <div className="favorite"> 
                 <img className="rest-image"src={rests.restaurantCard.imageURL}></img>
-                <svg id="ribbon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="75%" height="75%"><path d="M0 0h24v24H0z" fill="none"></path><path d="M5 2.98v18.1L12 16l7 5.08V2.98H5zm0 0" fill="currentColor"></path></svg>
+                <svg id="ribbon" className={this.state.active ? "ribbon-active" : "ribbon-inactive"}  onClick={this.toggleClass.bind(this)} viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M5 2.98v18.1L12 16l7 5.08V2.98H5zm0 0" fill="currentColor"></path></svg>
                   {/* <i className={this.state.active ? "fa fa-bookmark-o hidden" : "fa fa-bookmark-o" ? "fa fa-bookmark-o" : "fa fa-bookmark-o hidden" } aria-hidden="true" onClick={this.toggleClass.bind(this)}></i>
                   <i className={this.state.active ? "fa fa-bookmark" : "fa fa-bookmark hidden" ? "fa fa-bookmark hidden" : "fa fa-bookmark"} aria-hidden="true" onClick={this.toggleClass.bind(this)}></i> */}
                 </div>
