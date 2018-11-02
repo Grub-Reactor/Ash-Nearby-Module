@@ -40,7 +40,8 @@ class Carousel extends React.Component {
   }
 
   nextResults() {
-    if (this.state.count === 1) {
+
+    if (this.state.count <= 1) {
       this.setState({
         currentData: this.state.data.slice(3, 6),
         count: 2
@@ -55,16 +56,19 @@ class Carousel extends React.Component {
     if (this.state.count === 3) {
       this.setState({
         currentData: this.state.data.slice(9, 12),
-        count: 3
+        count: 4
       });
     };
+    console.log(this.state.currentData);
+    console.log(this.state.count);
   };
 
   previousResults() {
+
     if (this.state.count === 1) {
       this.setState({
         currentData: this.state.data.slice(0, 3),
-        count: 1
+        count: 0
       });
     };
     if (this.state.count === 2) {
@@ -73,12 +77,14 @@ class Carousel extends React.Component {
         count: 1
       });
     };   
-    if (this.state.count === 3) {
+    if (this.state.count >= 3) {
       this.setState({
         currentData: this.state.data.slice(6, 9),
         count: 2
       });
     };
+    console.log(this.state.currentData);
+    console.log(this.state.count);
   };
 
 
@@ -86,6 +92,7 @@ class Carousel extends React.Component {
     return(
       <div id="sexy-container">
         <h2>Sponsored restaurants in your area</h2>
+
         <CardFlexbox>
           <i className="fa fa-chevron-circle-left fa-2x" aria-hidden="true" onClick={this.previousResults.bind(this)}></i>
           {<Card cards={this.state.currentData}></Card>}

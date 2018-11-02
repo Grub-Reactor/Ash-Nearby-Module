@@ -38,14 +38,6 @@ body {
 
 /* Card Image CSS */
 
-/* .image-favorites {
-  display: absolute;
-  width: 250px;
-  height: 132px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-
-} */
 
 .rest-image {
   width: 250px;
@@ -60,26 +52,21 @@ body {
 
 }
 
+#ribbon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: rgba(0,0,0,.35);
+  background-color: white;
+  padding: 6px;
+  position: absolute;
+  top: 8.5%;
+}
+
 .favorite {
-  /* position: absolute; */
   top: 0px;
   right: 0px;
   z-index: 1;
-}
-
-.fa-bookmark-o {
-  position: absolute;
-  z-index: 1;
-  size: 200%;
-  top: 10%;
-  right: 16%;
-}
-
-.fa-bookmark {
-  position: absolute; 
-  z-index: 1;
-  size: 200%;
-
 }
 
 .hidden {
@@ -111,7 +98,7 @@ body {
   font-size: 12px;
   color: rgba(0,0,0,.55);
   position: relative;
-  top: -28px;
+  top: -23px;
   left: 15px;
 }
 
@@ -120,7 +107,7 @@ body {
   position: relative;
   line-height: 1.45;
   left: 15px;
-  top: -20px;
+  top: -15px;
 }
 
 .minimum {
@@ -129,21 +116,54 @@ body {
   font-size: 12px;
   line-height: 1.45;
   left: -45px;
-  top: -6px;
+  top: -16px;
 }
 
-.card-bottom-small {
-  flex-direction: column;
+.total-reviews {
+  position: relative;
+  font-size: small;
+  top: -10px;
+  right: -175px;
 }
 
-.small-card-right {
-  align-items: flex-end;
+.hover-container {
+  background-color: grey;
+}
 
+.hover-test {
+  background-color: gray;
 }
 
 
-.hover-box {
-  background-color:green;
-  padding: 50px;
-  margin: 50px;
+
+/*
+
+Stars CSS
+
+*/
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+  top: -12px;
+  right: -100px;
+}
+ 
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+ 
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0%;
+}
+ 
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
 }

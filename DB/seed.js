@@ -31,6 +31,23 @@ let deliveryMax = function() {
   return mins[random];
 };
 
+let randomImage = function() {
+  let image = [
+    `https://s3-us-west-1.amazonaws.com/grubreactor/abstract-barbecue-barbeque-bbq-161519.jpeg`,
+     `https://s3-us-west-1.amazonaws.com/grubreactor/abstract-barbecue-barbeque-bbq-161519.jpeg`,
+     `https://s3-us-west-1.amazonaws.com/grubreactor/brownie-dessert-cake-sweet-45202.jpeg`,
+     `https://s3-us-west-1.amazonaws.com/grubreactor/pexels-photo-106343.jpeg`,
+     `https://s3-us-west-1.amazonaws.com/grubreactor/pexels-photo-156114.jpeg`,
+     `https://s3-us-west-1.amazonaws.com/grubreactor/pexels-photo-236781.jpeg`,
+     `https://s3-us-west-1.amazonaws.com/grubreactor/pexels-photo-262959.jpeg`,
+     `https://s3-us-west-1.amazonaws.com/grubreactor/pexels-photo-629093.jpeg`,
+     `https://s3-us-west-1.amazonaws.com/grubreactor/pexels-photo-718742.jpeg`,
+     `https://s3-us-west-1.amazonaws.com/grubreactor/salmon-dish-food-meal-46239.jpeg`];
+  
+  let index = Math.floor(Math.random()*10);
+  return image[index]
+}
+
 
 let restaurantSeed = function() {
   var data = [];
@@ -41,7 +58,7 @@ let restaurantSeed = function() {
       id: num,
       restaurantCard: {
         restaurantName: [faker.fake('{{commerce.product}}'), " ", faker.fake('{{random.word}}')],
-        imageURL: faker.fake('{{random.image}}'),
+        imageURL: randomImage(),
         cuisine: [faker.fake('{{commerce.productAdjective}}'), ", ", faker.fake('{{random.word}}')],
         deliveryEstimate: roundedMax(),
         deliveryMin: deliveryMax(),

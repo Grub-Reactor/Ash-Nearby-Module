@@ -2,37 +2,38 @@ import React from 'react';
 
 
 class Hover extends React.Component {
-  constructor(props) {
-    super(props)
 
-  }
-  /*
-  hover: {
-    percentWasGood: Number,
-    percentOnTime: Number,
-    percentAccuracy: Number,
-    userName: String,
-    userProfile: String,
-    featuredReview: String
-  }
-  */
 
   render () {
     const hover = (
       <div className="hover-container">
-        {this.props.hovers.map((data) => {
-          <span className="hover-box">{data.hover.userName}</span>
+        {this.props.hovers.map((hoverData) => {
+          <div className="hover-box"> 
+            <h5>Here's what people are saying:</h5>
+            <div className="hover-box-top">
+              <ul>
+                <li>{hoverData.hover.percentWasGood}</li>
+                <li>{hoverData.hover.percentOnTime}</li>
+                <li>{hoverData.hover.percentAccuracy}</li>
+              </ul>
+            </div>
+            <div className="hover-user-card">
+              <div className="hover-avatar">{hoverData.hover.userProfile}</div>
+              <div className="hover-user-profile">{hoverData.hover.userName}</div>
+              <div className="hover-review">{hoverData.hover.featuredReview}</div>
+            </div>
+          </div>
         })}
       </div>
     )
-    return(
-      <div>
+    return (
+      <div className="hover-test">
         {hover}
       </div>
     );
   }
 }
-
+        
 
 
 export default Hover;
