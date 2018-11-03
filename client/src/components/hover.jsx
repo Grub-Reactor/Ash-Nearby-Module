@@ -1,9 +1,7 @@
 import React from 'react';
 
 const Hover = ({ onHover }) => (
-  <div className="hover">
-      <div className="hover__hover">{onHover}</div>
-  </div>
+  <div className="hover">{onHover}</div>
 )
 
 export default Hover;
