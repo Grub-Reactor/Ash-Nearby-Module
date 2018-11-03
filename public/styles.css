@@ -205,25 +205,16 @@ Stars CSS
   content: "\f006 \f006 \f006 \f006 \f006";
 }
  
-.stars-inner {
+/* .stars-inner {
   position: absolute;
-  top: -12px;
-  right: -100px;
+  top: 0;
+  left: 0;
   white-space: nowrap;
   overflow: hidden;
   width: 50%;
 }
- 
-.stars-inner::before {
+  */
+/* .stars-inner::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   color: #f8ce0b;
-}
-
-
-.hidden {
-  visibility: hidden;
-}
-
-.visible {
-  visibility: visible;
-}
+} */
