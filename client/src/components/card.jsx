@@ -21,23 +21,23 @@ class Card extends React.Component {
 
   showHover(data) {
     return(
-      <div className="hover-container">Hello
-        <div className="hover-box"> Test!
-          <h5>Here's what people are saying:</h5>
-          <div className="hover-box-top">
-            <ul>
-              <li>{data.hover.percentWasGood}</li>
-              <li>{data.hover.percentOnTime}</li>
-              <li>{data.hover.percentAccuracy}</li>
-            </ul>
-          </div>
+        <div className="hover-box">
+          <p>Here's what people are saying:</p>
+            <div className = "hover-list">
+              <h4>{data.hover.percentWasGood}%</h4>
+                <span className = "hover-box-text">Food was good</span>
+              <h4>{data.hover.percentOnTime}</h4>
+                <span className = "hover-box-text">Delivery was on time</span>
+              <h4>{data.hover.percentAccuracy}</h4>
+                <span className = "hover-box-text">Order was accurate</span>
+            </div>
           <div className="hover-user-card">
-            <div className="hover-avatar">{data.hover.userProfile}</div>
+            <img className = "profile-pic" src={data.hover.userProfile}></img>
             <div className="hover-user-profile">{data.hover.userName}</div>
+            <p></p>
             <div className="hover-review">{data.hover.featuredReview}</div>
           </div>
         </div>
-    </div>
     )
   }
 
@@ -65,8 +65,6 @@ class Card extends React.Component {
                 </div>
             </div>
             <div className="card-bottom">
-            <Hover onHover={<div>{this.showHover(rests)}</div>}>
-            </Hover>
               <div className="card-title">
                 <h4 className="rest-name">{rests.restaurantCard.restaurantName}</h4>
                 <div className="cuisines">{rests.restaurantCard.cuisine}</div>
@@ -77,6 +75,8 @@ class Card extends React.Component {
                   <div className="total-reviews">{rests.restaurantCard.totalReviews} ratings</div>
                 </div>
                 <div className="small-card-right">
+                  <Hover onHover={<div>{this.showHover(rests)}</div>}>
+                  </Hover>
                   <div className="stars-outer">{this.generateStars(rests.restaurantCard.starReviews)}</div>
                     <div className="stars-inner"></div>
                   <div className="minimum">${rests.restaurantCard.deliveryMin} min.</div>

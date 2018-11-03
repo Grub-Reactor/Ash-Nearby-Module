@@ -1,14 +1,18 @@
 import { shallow, mount, render } from 'enzyme';
 import React from 'react';
-import Card from '../../src/components/carousel.jsx'
+import Carousel from '../../client/src/components/carousel.jsx'
 
 //import components you want to test
 
 
+describe('It should behave the way I expect!', function() {
+  it('Throws an error when expected behavior does not match actual behavior', function() {
+    var even = function(num){
+      return num/2 === 0;
+    }
 
-describe("It should exist", function() {
-  it("should have a div", function() {
-    const mounted = mount(<Card cards = {props}></Card>)
-    console.log(mounted);
-  })
-})
+    if(even(10) === true) {
+      throw new Error('10 should be even!');
+    }
+  });
+});

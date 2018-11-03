@@ -12,7 +12,9 @@ display: flex;
 flex-direction: row;
 align-items: center;
 max-width: 815px;
+
 overflow: hidden;
+  &:hover { overflowY: visible }
 `
 
 class Carousel extends React.Component {
