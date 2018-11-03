@@ -193,17 +193,25 @@ Stars CSS
 
 */
 
-.stars-outer {
+.stars {
   display: inline-block;
   position: relative;
   font-family: FontAwesome;
+  font-style: normal;
   top: -12px;
   right: -100px;
 }
- 
-.stars-outer::before {
-  content: "\f006 \f006 \f006 \f006 \f006";
+
+.rating-star-checked {
+  font-style: normal;
+  color: #f8ce0b;
 }
+
+.rating-star-unchecked {
+  font-style: normal;
+}
+ 
+
  
 /* .stars-inner {
   position: absolute;

@@ -29,6 +29,18 @@ class Card extends React.Component {
       hover: !this.state.hover
     };
   }
+
+  generateStars(num) {
+    return(
+    <div className='stars'>
+      <i className={num > 0 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
+      <i className={num > 1 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
+      <i className={num > 2 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
+      <i className={num > 3 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
+      <i className={num > 4 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
+    </div>
+    )
+  }
   
 
   render () {
@@ -53,7 +65,7 @@ class Card extends React.Component {
                   <div className="total-reviews">{rests.restaurantCard.totalReviews} ratings</div>
                 </div>
                 <div className="small-card-right">
-                  <div className="stars-outer"></div>
+                  <div className="stars-outer">{this.generateStars(rests.restaurantCard.starReviews)}</div>
                     <div className="stars-inner"></div>
                   <div className="minimum">${rests.restaurantCard.deliveryMin} min.</div>
                 </div>
@@ -67,7 +79,6 @@ class Card extends React.Component {
       <div>
           {cards}
           {<Hover hovers={this.props.cards}></Hover>}
-
       </div>
     );
   }
