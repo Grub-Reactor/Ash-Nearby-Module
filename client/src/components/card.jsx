@@ -8,7 +8,8 @@ class Card extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      active: false
+      active: false,
+      hover: false,
     }
   }
 
@@ -24,6 +25,14 @@ class Card extends React.Component {
     const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
     // document.querySelector(`.stars-inner`).style.width = starPercentageRounded; 
     return;
+  }
+
+  handleMouseOver() {
+
+  }
+
+  toggleHover() {
+    
   }
   
 
@@ -64,6 +73,8 @@ class Card extends React.Component {
     return(
       <div>
           {cards}
+          {<Hover hovers={this.props.cards}></Hover>}
+
       </div>
     );
   }

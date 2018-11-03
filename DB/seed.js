@@ -33,7 +33,7 @@ let deliveryMax = function() {
 
 let randomImage = function() {
   let image = [
-    `https://s3-us-west-1.amazonaws.com/grubreactor/abstract-barbecue-barbeque-bbq-161519.jpeg`,
+     `https://s3-us-west-1.amazonaws.com/grubreactor/abstract-barbecue-barbeque-bbq-161519.jpeg`,
      `https://s3-us-west-1.amazonaws.com/grubreactor/abstract-barbecue-barbeque-bbq-161519.jpeg`,
      `https://s3-us-west-1.amazonaws.com/grubreactor/brownie-dessert-cake-sweet-45202.jpeg`,
      `https://s3-us-west-1.amazonaws.com/grubreactor/pexels-photo-106343.jpeg`,
@@ -57,7 +57,7 @@ let restaurantSeed = function() {
     data.push({
       id: num,
       restaurantCard: {
-        restaurantName: [faker.fake('{{commerce.product}}'), " ", faker.fake('{{random.word}}')],
+        restaurantName: [faker.fake('{{commerce.product}}'), " ", faker.fake('{{commerce.product}}')],
         imageURL: randomImage(),
         cuisine: [faker.fake('{{commerce.productAdjective}}'), ", ", faker.fake('{{random.word}}')],
         deliveryEstimate: roundedMax(),

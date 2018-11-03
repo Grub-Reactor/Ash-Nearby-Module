@@ -9,13 +9,22 @@ body {
   background-color: whitesmoke;
 }
 
+h2 {
+  position: relative;
+  margin-left: 45px;
+}
+
 .sexy-container {
   margin: 25px;
+  margin-left: 25px;
 }
 
 .test {
   display: flex;
   flex-direction: row;
+  transform: translateX(0%);
+  margin-left: 8px;
+  transition-duration: 0.3s;
 }
 
 
@@ -64,8 +73,10 @@ body {
   box-shadow: 0 0 6px rgba(0,0,0,.1);
   transform: rotate(270deg);
   position: relative;
-  right: 23px;
-  top: 6px;
+  left: 798px;
+  top: -145px;
+  z-index: 1;
+  visibility: visible;
 }
 
 #caret-left {
@@ -77,8 +88,10 @@ body {
   box-shadow: 0 0 6px rgba(0,0,0,.1);
   transform: rotate(90deg);
   position: relative;
-  left: 27px;
-  top: 6px;
+  left: 0px;
+  top: 164px;
+  z-index: 1;
+  visibility: visible;
 
 }
 
@@ -88,9 +101,9 @@ body {
   border-radius: 50%;
   background-color: white;
   padding: 6px;
-  top: -130px;
+  top: -125px;
   position: relative;
-  left: 211px;
+  left: 206px;
   box-shadow: 0 3px 6px rgba(0,0,0,.1);
 }
 
@@ -128,6 +141,7 @@ body {
   top: -5px;
   overflow: hidden;
   font-size: 17px;
+  text-overflow: ellipsis;
 
 }
 
@@ -160,7 +174,8 @@ body {
   position: relative;
   font-size: small;
   top: -10px;
-  right: -175px;
+  right: -173px;
+  text-align: end;
 }
 
 .hover-container {
@@ -192,18 +207,17 @@ Stars CSS
  
 .stars-inner {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -12px;
+  right: -100px;
   white-space: nowrap;
   overflow: hidden;
-  width: 0%;
+  width: 50%;
 }
  
 .stars-inner::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   color: #f8ce0b;
 }
-
 
 
 .hidden {

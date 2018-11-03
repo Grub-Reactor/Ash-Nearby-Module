@@ -2,12 +2,16 @@ import React from 'react';
 import Card from './card.jsx';
 import Hover from './hover.jsx';
 import styled from 'styled-components';
+import { Transform } from 'stream';
+import $ from 'jquery';
 
 
 const CardFlexbox = styled.div `
 display: flex;
 flex-direction: row;
 align-items: center;
+max-width: 815px;
+overflow: hidden;
 `
 
 class Carousel extends React.Component {
@@ -16,8 +20,7 @@ class Carousel extends React.Component {
     this.state = {
       isLoading: true,
       data: [],
-      currentData: [],
-      count: 1,
+      count: 25,
       error: null
     }
     this.nextResults = this.nextResults.bind(this);
@@ -32,66 +35,53 @@ class Carousel extends React.Component {
       this.setState({
         data: data,
         isLoading: false,
-        currentData: data.slice(0, 3),
-        count: 1
       })
     )
     .catch(error => this.setState({ error, isLoading: false }));
   }
 
   nextResults() {
-    if (this.state.count <= 1) {
+    let next = this.state.count;
+    console.log(next)
+    document.querySelector('.test').style.transform = `translateX(-${next}%)`;
+    this.setState({
+      count: (next + 25)
+    });
+    next += 25;
+    if (next >= 100) {
       this.setState({
-        currentData: this.state.data.slice(3, 6),
-        count: 2,
-      });
-    };
-    if (this.state.count === 2) {
-      this.setState({
-        currentData: this.state.data.slice(6, 9),
-        count: 3,
-      });
-    };   
-    if (this.state.count === 3) {
-      this.setState({
-        currentData: this.state.data.slice(9, 12),
-        count: 4,
-      });
-    };
+        count: 75
+      })
+      next = 75
+    }
   };
 
   previousResults() {
-    if (this.state.count === 1) {
+    let prev = this.state.count;
+    console.log(prev)
+    document.querySelector('.test').style.transform = `translateX(-${prev}%)`;
+    this.setState({
+      count: (prev - 25)
+    });
+    prev -= 25;
+    if (prev <= 0) {
       this.setState({
-        currentData: this.state.data.slice(0, 3),
-        count: 0,
-      });
-    };
-    if (this.state.count === 2) {
-      this.setState({
-        currentData: this.state.data.slice(3, 6),
-        count: 1,
-      });
-    };   
-    if (this.state.count >= 3) {
-      this.setState({
-        currentData: this.state.data.slice(6, 9),
-        count: 2,
-      });
-    };
+        count: 25
+      })
+      prev = 25;
+    }
   };
 
   render() {
     return(
       <div id="sexy-container">
         <h2>Sponsored restaurants in your area</h2>
-
-        <CardFlexbox>
         <svg id="caret-left" onClick={this.previousResults.bind(this)} viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M18.6 7.51l2.48 2.47-6.6 6.6-2.47 2.47-2.47-2.47-6.55-6.55 2.48-2.47 6.54 6.54 6.59-6.59zm0 0" fill="currentColor"></path></svg>
-          {<Card cards={this.state.currentData}></Card>}
-          {<Hover hovers={this.state.currentData}></Hover>}
-          <svg id="caret-right" onClick={this.nextResults.bind(this)} viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M18.6 7.51l2.48 2.47-6.6 6.6-2.47 2.47-2.47-2.47-6.55-6.55 2.48-2.47 6.54 6.54 6.59-6.59zm0 0" fill="currentColor"></path></svg>
+        <CardFlexbox>
+          {<Card cards={this.state.data}></Card>}
+          {<Hover hovers={this.state.data}></Hover>}
         </CardFlexbox>
+        <svg id="caret-right" onClick={this.nextResults.bind(this)} viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M18.6 7.51l2.48 2.47-6.6 6.6-2.47 2.47-2.47-2.47-6.55-6.55 2.48-2.47 6.54 6.54 6.59-6.59zm0 0" fill="currentColor"></path></svg>
       </div>
     );
   }
