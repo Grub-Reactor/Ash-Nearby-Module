@@ -6,7 +6,7 @@ Card CSS
 */
 
 body {
-  background-color: whitesmoke;
+  background-color: 1;
 }
 
 h2 {
@@ -91,7 +91,7 @@ h2 {
   left: 0px;
   top: 164px;
   z-index: 1;
-  visibility: visible;
+  visibility: hidden;
 
 }
 

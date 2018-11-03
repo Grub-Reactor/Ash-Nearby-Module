@@ -35,9 +35,9 @@
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
-    "babel-core": "^6.26.3",
     "@babel/preset-react": "^7.0.0",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "babel-plugin-styled-components": "^1.8.0",
     "enzyme": "^3.7.0",
@@ -47,6 +47,7 @@
     "faker": "^4.1.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.5",
+    "puppeteer": "^1.10.0",
     "styled-components": "^4.0.3"
   },
   "version": "1.0.0",
@@ -62,6 +63,6 @@
   "homepage": "https://github.com/Ashcoca/Ash-Nearby-Module#readme",
   "jest": {
     "verbose": true,
-    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.js"
   }
 }
