@@ -19,15 +19,26 @@ class Card extends React.Component {
       active: !currentState });
   };
 
-  onMouseEnter() {
-    this.setState(toggleHover()
+  showHover(data) {
+    return(
+      <div className="hover-container">Hello
+        <div className="hover-box"> Test!
+          <h5>Here's what people are saying:</h5>
+          <div className="hover-box-top">
+            <ul>
+              <li>{data.hover.percentWasGood}</li>
+              <li>{data.hover.percentOnTime}</li>
+              <li>{data.hover.percentAccuracy}</li>
+            </ul>
+          </div>
+          <div className="hover-user-card">
+            <div className="hover-avatar">{data.hover.userProfile}</div>
+            <div className="hover-user-profile">{data.hover.userName}</div>
+            <div className="hover-review">{data.hover.featuredReview}</div>
+          </div>
+        </div>
+    </div>
     )
-  }
-
-  toggleHover() {
-    return {
-      hover: !this.state.hover
-    };
   }
 
   generateStars(num) {
@@ -41,7 +52,6 @@ class Card extends React.Component {
     </div>
     )
   }
-  
 
   render () {
     const cards = (
@@ -55,7 +65,9 @@ class Card extends React.Component {
                 </div>
             </div>
             <div className="card-bottom">
-              <div className="card-title" onMouseEnter={<Hover props={rests}></Hover>}>
+            <Hover onHover={<div>{this.showHover(rests)}</div>}>
+            </Hover>
+              <div className="card-title">
                 <h4 className="rest-name">{rests.restaurantCard.restaurantName}</h4>
                 <div className="cuisines">{rests.restaurantCard.cuisine}</div>
               </div>
@@ -78,7 +90,6 @@ class Card extends React.Component {
     return(
       <div>
           {cards}
-          {<Hover hovers={this.props.cards}></Hover>}
       </div>
     );
   }

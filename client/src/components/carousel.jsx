@@ -1,9 +1,10 @@
 import React from 'react';
 import Card from './card.jsx';
-import Hover from './hover.jsx';
 import styled from 'styled-components';
 import { Transform } from 'stream';
-import Back from './back.jsx';
+// import Hover from './hover.jsx';
+// import Back from './back.jsx';
+// import Next from './next.jsx';
 
 
 const CardFlexbox = styled.div `
@@ -47,6 +48,7 @@ class Carousel extends React.Component {
       count: next
     });
     if (next === 2) {
+      //I know that document.querySelector is not a very React way of thinking
       document.querySelector('.test').style.transform = `translateX(-25%)`;
       document.querySelector('#caret-left').style.visibility = 'visible';
     }

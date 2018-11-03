@@ -8,7 +8,7 @@ import Card from '../../src/components/carousel.jsx'
 
 describe("It should exist", function() {
   it("should have a div", function() {
-    const mounted = mount(<Card cards ={props}></Card>)
+    const mounted = mount(<Card cards = {props}></Card>)
     console.log(mounted);
   })
 })

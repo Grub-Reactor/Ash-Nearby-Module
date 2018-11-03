@@ -178,14 +178,6 @@ h2 {
   text-align: end;
 }
 
-.hover-container {
-  background-color: grey;
-}
-
-.hover-test {
-  background-color: gray;
-}
-
 
 /*
 
@@ -197,7 +189,6 @@ Stars CSS
   display: inline-block;
   position: relative;
   font-family: FontAwesome;
-  font-style: normal;
   top: -12px;
   right: -100px;
 }
@@ -210,19 +201,21 @@ Stars CSS
 .rating-star-unchecked {
   font-style: normal;
 }
- 
 
- 
-/* .stars-inner {
+
+
+/*
+
+Hover CSS
+
+*/
+
+
+.hover {
   position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 50%;
+  opacity: 0;
 }
-  */
-/* .stars-inner::before {
-  content: "\f005 \f005 \f005 \f005 \f005";
-  color: #f8ce0b;
-} */
+
+.hover:hover {
+  opacity: 1;
+}
