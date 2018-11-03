@@ -3,7 +3,6 @@ import Card from './card.jsx';
 import Hover from './hover.jsx';
 import styled from 'styled-components';
 import { Transform } from 'stream';
-import $ from 'jquery';
 
 
 const CardFlexbox = styled.div `
@@ -20,7 +19,7 @@ class Carousel extends React.Component {
     this.state = {
       isLoading: true,
       data: [],
-      count: 25,
+      count: 1,
       error: null
     }
     this.nextResults = this.nextResults.bind(this);
@@ -42,41 +41,42 @@ class Carousel extends React.Component {
 
   nextResults() {
     let next = this.state.count;
-    console.log(next)
-    document.querySelector('.test').style.transform = `translateX(-${next}%)`;
+    next ++;
     this.setState({
-      count: (next + 25)
+      count: next
     });
-    next += 25;
-    document.querySelector('#caret-left').style.visibility = 'visible';
-    if (next >= 100) {
-      this.setState({
-        count: 75
-      })
-      next = 75
-      document.querySelector('#caret-right').style.visibility = 'hidden';
-
+    if (next === 2) {
+      document.querySelector('.test').style.transform = `translateX(-25%)`;
+      document.querySelector('#caret-left').style.visibility = 'visible';
     }
-  };
+    if (next === 3) {
+      document.querySelector('.test').style.transform = `translateX(-50%)`;
+    }  
+    if (next === 4) {
+      document.querySelector('.test').style.transform = `translateX(-75%)`;
+      document.querySelector('#caret-right').style.visibility = 'hidden';
+    }  
+  }
 
   previousResults() {
-    document.querySelector('#caret-left').style.visibility = 'visible';
     let prev = this.state.count;
+    prev --;
     this.setState({
-      count: (prev - 25)
-    });
-    prev -= 25;
-    console.log(prev)
-    document.querySelector('.test').style.transform = `translateX(-${prev}%)`;
-
-    if (prev <= 0) {
-      this.setState({
-        count: 25
-      })
-      prev = 25;
-      document.querySelector('#caret-left').style.visibility = 'hidden';
+      count: prev
+    })
+    if (prev === 3) {
+      document.querySelector('.test').style.transform = `translateX(-50%)`;
+      document.querySelector('#caret-right').style.visibility = 'visible';
     }
-  };
+    if (prev === 2) {
+      document.querySelector('.test').style.transform = `translateX(-25%)`;
+    }
+    if (prev === 1) {
+      document.querySelector('.test').style.transform = `translateX(0%)`;
+      document.querySelector('#caret-left').style.visibility = 'hidden';
+
+    }
+  }
 
   render() {
     return(
