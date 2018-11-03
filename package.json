@@ -15,6 +15,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.4",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.3",
@@ -37,12 +38,16 @@
     "@babel/preset-react": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
     "babel-plugin-styled-components": "^1.8.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^5.8.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
     "faker": "^4.1.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.5",
+    "puppeteer": "^1.10.0",
     "styled-components": "^4.0.3"
   },
   "version": "1.0.0",
@@ -55,5 +60,9 @@
   "bugs": {
     "url": "https://github.com/Ashcoca/Ash-Nearby-Module/issues"
   },
-  "homepage": "https://github.com/Ashcoca/Ash-Nearby-Module#readme"
+  "homepage": "https://github.com/Ashcoca/Ash-Nearby-Module#readme",
+  "jest": {
+    "verbose": true,
+    "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.js"
+  }
 }

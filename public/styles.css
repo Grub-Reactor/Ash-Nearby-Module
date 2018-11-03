@@ -5,78 +5,216 @@
 Card CSS
 */
 
+body {
+  background-color: 1;
+}
+
+h2 {
+  position: relative;
+  margin-left: 45px;
+}
+
+.sexy-container {
+  margin: 25px;
+  margin-left: 25px;
+}
+
 .test {
   display: flex;
   flex-direction: row;
+  transform: translateX(0%);
+  margin-left: 8px;
+  transition-duration: 0.3s;
 }
 
 
 .card-container {
-  max-width: 250px;
-  padding: 20px;
+  max-width: 255px;
+  padding: 10px;
+  /* background-color: white; */
 }
 
 .card-top {
-  display: flex;
 }
 
 .card-bottom {
-  border-style: solid;
-  border-color: lightgray;
-  border-width: 1px;
+  border: 1px solid rgba(0,0,0,.1);
   width: 250px;
-  height: 100px;
+  max-width: 250px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: white;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.05);
 
 }
 
 
 /* Card Image CSS */
 
-.image-favorites {
-  display: absolute;
-  width: 250px;
-  top: 0px;
-  left: 0px;
-
-}
 
 .rest-image {
   width: 250px;
-  height: 150px;
+  height: 132px;
   display: flex;
-  z-index: -1;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.1);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.05);
+
 }
 
-.favorite {
-  /* position: absolute; */
+#caret-right {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  color: blue;
+  background-color: white;
+  box-shadow: 0 0 6px rgba(0,0,0,.1);
+  transform: rotate(270deg);
+  position: relative;
+  left: 798px;
+  top: -145px;
+  z-index: 1;
+  visibility: visible;
+}
+
+#caret-left {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  color: blue;
+  background-color: white;
+  box-shadow: 0 0 6px rgba(0,0,0,.1);
+  transform: rotate(90deg);
+  position: relative;
+  left: 0px;
+  top: 164px;
+  z-index: 1;
+  visibility: hidden;
+
+}
+
+#ribbon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 6px;
+  top: -125px;
+  position: relative;
+  left: 206px;
+  box-shadow: 0 3px 6px rgba(0,0,0,.1);
+}
+
+.ribbon-active {
+  color: #faae1d;
+  fill: #faae1d
+}
+
+.ribbon-inactive {
+  color: #b8c1d1;
+  fill: #b8c1d1;
+}
+
+/* .favorite {
   top: 0px;
   right: 0px;
-  z-index: 1;
+  z-index: -1;
+} */
+
+.card-top {
+  max-height: 132px;
+  z-index: -1;
 }
-
-.fa-bookmark-o {
-  /* position: absolute; */
-  z-index: 1;
-  size: 200%;
-}
-
-.fa-bookmark {
-  /* position: absolute;  */
-  z-index: 1;
-  size: 200%;
-
-}
-
-.hidden {
-  display: flex;
-  visibility: hidden;
-  position: absolute;
-}
-
 
 
 /* Card Bottom CSS */
 
-.card-bottom {
+.card-bottom-small {
   display: flex;
 }
+
+.rest-name {
+  position: relative;
+  left: 15px;
+  top: -5px;
+  overflow: hidden;
+  font-size: 17px;
+  text-overflow: ellipsis;
+
+}
+
+.cuisines {
+  font-size: 12px;
+  color: rgba(0,0,0,.55);
+  position: relative;
+  top: -23px;
+  left: 15px;
+}
+
+.estimate {
+  font-size: 12px;
+  position: relative;
+  line-height: 1.45;
+  left: 15px;
+  top: -15px;
+}
+
+.minimum {
+  position: relative;
+  color: rgba(0,0,0,.55);
+  font-size: 12px;
+  line-height: 1.45;
+  left: -45px;
+  top: -16px;
+}
+
+.total-reviews {
+  position: relative;
+  font-size: small;
+  top: -10px;
+  right: -173px;
+  text-align: end;
+}
+
+.hover-container {
+  background-color: grey;
+}
+
+.hover-test {
+  background-color: gray;
+}
+
+
+/*
+
+Stars CSS
+
+*/
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+  top: -12px;
+  right: -100px;
+}
+ 
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+ 
+/* .stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 50%;
+}
+  */
+/* .stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+} */
