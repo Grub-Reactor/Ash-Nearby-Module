@@ -20,18 +20,23 @@ class Card extends React.Component {
   };
 
   showHover(data) {
-    console.log("HOVERING")
     return(
         <div className="hover-box">
           <p>Here's what people are saying:</p>
-            <div className = "hover-list">
+            <ul className = "hover-list">
+            <li>
               <h4>{data.hover.percentWasGood}%</h4>
                 <span className = "hover-box-text">Food was good</span>
+            </li>
+            <li>
               <h4>{data.hover.percentOnTime}</h4>
                 <span className = "hover-box-text">Delivery was on time</span>
+            </li>  
+            <li>
               <h4>{data.hover.percentAccuracy}</h4>
                 <span className = "hover-box-text">Order was accurate</span>
-            </div>
+            </li>
+            </ul>
           <div className="hover-user-card">
             <img className = "profile-pic" src={data.hover.userProfile}></img>
             <div className="hover-user-profile">{data.hover.userName}</div>
@@ -75,8 +80,8 @@ class Card extends React.Component {
                   <div className="estimate">{rests.restaurantCard.deliveryEstimate} - {rests.restaurantCard.deliveryEstimate + 10} mins</div>
                   <div className="total-reviews">{rests.restaurantCard.totalReviews} ratings</div>
                 </div>
-                <Hover onHover={<div>{this.showHover(rests)}</div>}></Hover>  
                 <div className="small-card-right">
+                  <Hover onHover={<div>{this.showHover(rests)}</div>}></Hover>
                   <div className="stars-outer">{this.generateStars(rests.restaurantCard.starReviews)}</div>
                     <div className="stars-inner"></div>
                   <div className="minimum">${rests.restaurantCard.deliveryMin} min.</div>

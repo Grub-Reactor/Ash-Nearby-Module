@@ -14,7 +14,8 @@ align-items: center;
 max-width: 815px;
 
 overflow: hidden;
-  &:hover { overflow: visible }
+  // &:hover { overflow: visible; }
+
 `
 
 class Carousel extends React.Component {
@@ -23,10 +24,6 @@ class Carousel extends React.Component {
     this.state = {
       isLoading: true,
       data: [],
-      // first: data.slice(0, 3),
-      // second: data.slice(3, 6),
-      // third: data.slice(6, 9),
-      // fourth: data.slice(9, 12),
       count: 1,
       error: null
     }
