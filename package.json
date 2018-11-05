@@ -47,7 +47,6 @@
     "faker": "^4.1.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.5",
-    "puppeteer": "^1.10.0",
     "styled-components": "^4.0.3"
   },
   "version": "1.0.0",
