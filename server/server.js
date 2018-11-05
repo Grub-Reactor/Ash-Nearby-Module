@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 app.get('/restaurant/:id/', (req, res) => {
   console.log("request params", req.params.id);
   let query = Nearby.find(({}));
+  query.where('id').gt(req.params.id-10).lt(req.params.id+10)
   query.sort({"restaurantCard.deliveryEstimate": 1});
   query.limit(12);
 
