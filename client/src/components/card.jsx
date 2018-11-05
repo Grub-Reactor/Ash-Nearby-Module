@@ -8,6 +8,7 @@ class Card extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      data: this.props.cards,
       active: false,
       hover: false,
     }
@@ -19,10 +20,12 @@ class Card extends React.Component {
       active: !currentState });
   };
 
-  showHover(data) {
-    return(
+  showHover() {
+      const datas = (
         <div className="hover-box">
-          <p>Here's what people are saying:</p>
+        {this.props.cards.map((data) =>
+        <div>
+          <p>Here's what people are saying</p>
             <ul className = "hover-list">
             <li>
               <h4>{data.hover.percentWasGood}%</h4>
@@ -44,6 +47,13 @@ class Card extends React.Component {
             <div className="hover-review">{data.hover.featuredReview}</div>
           </div>
         </div>
+        )}
+      </div>
+    )
+    return (
+      <div>
+      {datas}
+      </div>
     )
   }
 
@@ -81,7 +91,7 @@ class Card extends React.Component {
                   <div className="total-reviews">{rests.restaurantCard.totalReviews} ratings</div>
                 </div>
                 <div className="small-card-right">
-                  <Hover onHover={<div>{this.showHover(rests)}</div>}></Hover>
+                  <Hover onHover={<div>{this.showHover()}</div>}></Hover>
                   <div className="stars-outer">{this.generateStars(rests.restaurantCard.starReviews)}</div>
                     <div className="stars-inner"></div>
                   <div className="minimum">${rests.restaurantCard.deliveryMin} min.</div>
