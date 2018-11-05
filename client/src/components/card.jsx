@@ -8,6 +8,7 @@ class Card extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      data: this.props.cards,
       active: false,
       hover: false,
     }
@@ -19,17 +20,54 @@ class Card extends React.Component {
       active: !currentState });
   };
 
-  onMouseEnter() {
-    this.setState(toggleHover()
+  showHover() {
+      const datas = (
+        <div className="hover-box">
+        {this.props.cards.map((data) =>
+        <div>
+          <p>Here's what people are saying</p>
+            <ul className = "hover-list">
+            <li>
+              <h4>{data.hover.percentWasGood}%</h4>
+                <span className = "hover-box-text">Food was good</span>
+            </li>
+            <li>
+              <h4>{data.hover.percentOnTime}</h4>
+                <span className = "hover-box-text">Delivery was on time</span>
+            </li>  
+            <li>
+              <h4>{data.hover.percentAccuracy}</h4>
+                <span className = "hover-box-text">Order was accurate</span>
+            </li>
+            </ul>
+          <div className="hover-user-card">
+            <img className = "profile-pic" src={data.hover.userProfile}></img>
+            <div className="hover-user-profile">{data.hover.userName}</div>
+            <p></p>
+            <div className="hover-review">{data.hover.featuredReview}</div>
+          </div>
+        </div>
+        )}
+      </div>
+    )
+    return (
+      <div>
+      {datas}
+      </div>
     )
   }
 
-  toggleHover() {
-    return {
-      hover: !this.state.hover
-    };
+  generateStars(num) {
+    return(
+    <div className='stars'>
+      <i className={num > 0 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
+      <i className={num > 1 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
+      <i className={num > 2 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
+      <i className={num > 3 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
+      <i className={num > 4 ? "fas fa-star rating-star-checked" : "fas fa-star rating-star-unchecked"}></i>
+    </div>
+    )
   }
-  
 
   render () {
     const cards = (
@@ -43,7 +81,7 @@ class Card extends React.Component {
                 </div>
             </div>
             <div className="card-bottom">
-              <div className="card-title" onMouseEnter={<Hover props={rests}></Hover>}>
+              <div className="card-title">
                 <h4 className="rest-name">{rests.restaurantCard.restaurantName}</h4>
                 <div className="cuisines">{rests.restaurantCard.cuisine}</div>
               </div>
@@ -53,7 +91,8 @@ class Card extends React.Component {
                   <div className="total-reviews">{rests.restaurantCard.totalReviews} ratings</div>
                 </div>
                 <div className="small-card-right">
-                  <div className="stars-outer"></div>
+                  <Hover onHover={<div>{this.showHover()}</div>}></Hover>
+                  <div className="stars-outer">{this.generateStars(rests.restaurantCard.starReviews)}</div>
                     <div className="stars-inner"></div>
                   <div className="minimum">${rests.restaurantCard.deliveryMin} min.</div>
                 </div>
@@ -66,8 +105,6 @@ class Card extends React.Component {
     return(
       <div>
           {cards}
-          {<Hover hovers={this.props.cards}></Hover>}
-
       </div>
     );
   }

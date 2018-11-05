@@ -61,7 +61,6 @@ h2 {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   box-shadow: 0 1px 0 rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.05);
-
 }
 
 #caret-right {
@@ -133,6 +132,7 @@ h2 {
 
 .card-bottom-small {
   display: flex;
+  z-index: 2;
 }
 
 .rest-name {
@@ -178,14 +178,6 @@ h2 {
   text-align: end;
 }
 
-.hover-container {
-  background-color: grey;
-}
-
-.hover-test {
-  background-color: gray;
-}
-
 
 /*
 
@@ -193,28 +185,79 @@ Stars CSS
 
 */
 
-.stars-outer {
+.stars {
   display: inline-block;
   position: relative;
   font-family: FontAwesome;
   top: -12px;
   right: -100px;
 }
- 
-.stars-outer::before {
-  content: "\f006 \f006 \f006 \f006 \f006";
-}
- 
-/* .stars-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 50%;
-}
-  */
-/* .stars-inner::before {
-  content: "\f005 \f005 \f005 \f005 \f005";
+
+.rating-star-checked {
+  font-style: normal;
   color: #f8ce0b;
-} */
+}
+
+.rating-star-unchecked {
+  font-style: normal;
+}
+
+
+/*
+
+Hover CSS
+
+*/
+
+.small-card-right {
+  position: relative;
+}
+
+.hover {
+  position: absolute;
+  opacity: 0;
+  transition-duration: 0.25s;
+
+}
+
+.hover:hover {
+  opacity: 1;
+  transition-duration: 0.25s;
+
+}
+
+.hover-box {
+  position: absolute;
+  top: 30px;
+  border: 1px solid rgba(0,0,0,.1);
+  width: 250px;
+  max-width: 250px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: white;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.05);
+
+}
+
+.hover-list {
+  column-count: 3;
+  list-style-type: none;
+
+}
+
+
+.hover-user-card {
+  display: flex;
+  align-items:center;
+}
+
+.vertical-line {
+  border-left: thin solid darkgray;
+  height: 25px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 50px;
+  vertical-align: middle;
+}
