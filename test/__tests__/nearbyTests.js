@@ -3,7 +3,6 @@ import React from 'react';
 import Carousel from '../../client/src/components/carousel.jsx';
 import Card from '../../client/src/components/card.jsx';
 import Hover from '../../client/src/components/hover.jsx';
-//import components you want to test
 
 const cards = [{
   id: Number,
@@ -49,13 +48,3 @@ describe('Hover Component should render properly', function() {
     expect(wrapper.find('div').length).toEqual(0)
   })
 })
-
-
-//The Card tests are throwing an error, "map is not a function" so they are commented out
-
-// describe('Card Component should render properly', function() {
-//   it('Something', function() {
-//     const wrapper = mount(<Card key={2} cards={cards[0]}/>)
-//     expect(wrapper.find('div').length).toEqual(5);
-//   })
-// })

@@ -26,11 +26,4 @@ app.get('/restaurant/:id/', (req, res) => {
     })
 });
 
-//To be completed, post request to favorite restaurants
-app.post('/restaurant/:id/favorite', (req, res) => {
-  //target req.body.data.{restaurantID}
-  let query = Nearby.findOneAndUpdate({/*restaurantID*/})
-});
-
-
 app.listen(port, () => console.log(`Express is listening on port ${port}!`));

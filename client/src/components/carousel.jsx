@@ -14,7 +14,6 @@ overflow: hidden;
   // &:hover { overflowY: visible; }
 
 `
-
 class Carousel extends React.Component {
   constructor(props) {
     super(props)
