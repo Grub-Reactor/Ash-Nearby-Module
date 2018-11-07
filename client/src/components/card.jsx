@@ -111,15 +111,17 @@ const Stars = styled.div `
   font-family: FontAwesome;
   top: -12px;
   right: -100px;
-  font-style: normal !important
 `
 const starChecked = {
   fontStyle: 'normal',
-  color: '#f8ce0b'
+  color: '#f8ce0b',
+  fontSize: '13.5px'
 }
 const starUnchecked = {
   fontStyle: 'normal',
   color: '#b8c1d1',
+  fontSize: '13.5px'
+
 }
 
 //Hover Box CSS

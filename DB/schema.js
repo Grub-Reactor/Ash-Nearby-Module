@@ -4,7 +4,6 @@ mongoose.Promise = global.Promise;
 let faker = require('faker');
 
 
-//Removed location data, will consider re-adding if time permits
 const restaurantSchema = new mongoose.Schema({
   id: Number,
   restaurantCard: {
