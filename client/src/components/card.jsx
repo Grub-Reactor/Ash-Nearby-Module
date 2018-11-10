@@ -95,8 +95,9 @@ const Minimum = styled.div `
   color: rgba(0,0,0,.55);
   font-size: 12px;
   line-height: 1.45;
-  left: -45px;
+  left: -51px;
   top: -16px;
+  text-align: start;
 `
 const TotalReviews = styled.div `
   position: relative;
