@@ -64,8 +64,9 @@ class Carousel extends React.Component {
   }
 
   componentDidMount() {
-    let id = Math.floor((Math.random() * 100) + 1);
-    fetch(`/restaurant/${id}`)
+    const restaurantId = window.location.pathname.split('/')[2]
+    // let id = Math.floor((Math.random() * 100) + 1);
+    fetch(`/grub-reactor/${restaurantId}`)
     .then(response => response.json())
     .then(data => 
       this.setState({
