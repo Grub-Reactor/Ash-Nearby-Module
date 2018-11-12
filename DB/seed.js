@@ -1,5 +1,7 @@
 const db = require('./index.js');
+const mongoose = require('mongoose');
 const NearbyRest = require('./schema.js');
+
 const faker = require('faker');
 // 
 
@@ -82,7 +84,8 @@ let restaurantSeed = function() {
 
 const nearby = () => {
   NearbyRest.create(restaurantSeed())
-    .then(() => db.disconnect());
+    .then(() => mongoose.connection.close())
+    .catch(error => console.log('Error:', error))
 };
 
 nearby();

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/restingdb')
+mongoose.connect('mongodb://ash:12345a@ds157923.mlab.com:57923/restingdb');
 mongoose.Promise = global.Promise;
 let faker = require('faker');
 

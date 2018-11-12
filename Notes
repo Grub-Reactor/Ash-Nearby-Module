@@ -1,8 +1,0 @@
-preset env before preset-react
-
-cache true: compile faster
-dev-tool 'source-map'
-
-entry point:
-
-output: public folder

@@ -3,12 +3,12 @@ const port = 3004;
 const app = express();
 const bodyParser = require('body-parser');
 const Nearby = require('../DB/schema.js')
+const path = require('path');
 
-
-app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+app.use('/:id', express.static('public'));
 
 app.get('/restaurant/:id/', (req, res) => {
   console.log("request params", req.params.id);
