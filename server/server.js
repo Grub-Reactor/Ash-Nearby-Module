@@ -6,12 +6,12 @@ const Nearby = require('../DB/schema.js')
 const path = require('path');
 
 
-// app.use(express.static('public'));
-app.use('grub-reactor/:id', express.static(path.join(__dirname, '../', 'public')));
+app.use('/:id', express.static('public'));
+// app.use('grub-reactor/:id', express.static(path.join(__dirname, '../', 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.get('/grub-reactor/:id/', (req, res) => {
+app.get('/restaurant/:id/', (req, res) => {
   console.log("request params", req.params.id);
   let query = Nearby.find(({}));
   query.where('id').gt(req.params.id-10).lt(req.params.id+10)
